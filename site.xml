@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<site xsi:noNamespaceSchemaLocation="../../site.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <id>bba239b72ef04243a523cdac23f446d8</id>
+    <name>Glimmer</name>
+    <author name="taobao" url="http://www.taobao.com" wangwang="taobao"/>
+    <thumbnail>assets/images/frontpage.png</thumbnail>
+    <language>php</language>
+    <version>0.0.1</version>
+    <apply-sites>3,7</apply-sites>
+    <change-notes>Change note</change-notes>
+    <description>Glimmmer</description>
+    <global>
+        <header>header.php</header>
+        <footer>footer.php</footer>
+        <css>assets/stylesheets/global.css</css>
+    </global>
+    <styles default="blue">
+        <style>
+            <name>blue</name>
+            <thumbnail>assets/images/frontpage.png</thumbnail>
+            <css>assets/stylesheets/blue.css</css>
+        </style>
+    </styles>
+    <pages>
+        <page type="index">
+            <name>首页</name>
+            <thumbnail>assets/images/index.png</thumbnail>
+            <file>index.php</file>
+            <description>首页</description>
+        </page>
+        <page type="detail">
+            <name>宝贝详情页</name>
+            <thumbnail>assets/images/detail.png</thumbnail>
+            <file>detail.php</file>
+            <description>宝贝详情页</description>
+            <sections>
+                <section name="left">&lt;![CDATA[detail_left.php]]&gt;</section>
+                <section name="right">&lt;![CDATA[detail_right.php]]&gt;</section>
+            </sections>
+        </page>
+        <page type="article">
+            <name>文章页面</name>
+            <thumbnail>assets/images/article.png</thumbnail>
+            <file>article.php</file>
+            <description>文章页面</description>
+        </page>
+        <page type="articleList">
+            <name>文章列表页</name>
+            <thumbnail>assets/images/articleList.png</thumbnail>
+            <file>articleList.php</file>
+            <description>文章列表页</description>
+        </page>
+        <page type="other">
+            <name>促销页面</name>
+            <thumbnail>assets/images/onsale.png</thumbnail>
+            <file>onsale.php</file>
+            <description>促销页面</description>
+        </page>
+        <page type="list">
+            <name>搜索列表页</name>
+            <thumbnail>assets/images/searchList.png</thumbnail>
+            <file>searchList.php</file>
+            <description>搜索列表页</description>
+        </page>
+    </pages>
+</site>
