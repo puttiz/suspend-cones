@@ -29,8 +29,8 @@
         </span>
       </div>
     </div>
-    <a class="prev arrow" date-slide="prev" href="#myCarousel">‹</a>
-    <a class="next arrow" date-slide="next" href="#myCarousel">›</a>
+    <a class="prev arrow" href="#myCarousel">&lt;</a>
+    <a class="next arrow" href="#myCarousel">&gt;</a>
   </div>
 </div>
 <!--

@@ -10,21 +10,11 @@
     </div>
     <div class="mastnav span8">
       <ul class="nav">
-        <li>
-          <a class="active" href="./home.php">home</a>
-        </li>
-        <li>
-          <a href="./shop.php">shop</a>
-        </li>
-        <li>
-          <a href="./collections.php">collections</a>
-        </li>
-        <li>
-          <a href="./blog">blog</a>
-        </li>
-        <li>
-          <a href="./contact">contact</a>
-        </li>
+        <?
+          foreach( $shopManager->getShopPageLinks() as $mastnav ) {
+            echo ($mastnav->highLight == 1) ? '<li><a href="' . $mastnav->href . '" class="active">' . $mastnav->text .'</a></li>' . "\n" : '<li><a href="' . $mastnav->href . '">' . $mastnav->text .'</a></li>' . "\n";
+          }
+        ?>
       </ul>
     </div>
   </div>
