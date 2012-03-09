@@ -1,0 +1,7 @@
+body {
+  background-color: white;
+}
+
+.compass {
+  @include box-shadow(1px 1px 15px rgba(black, .3));
+}
