@@ -1,0 +1,20 @@
+.topbar.bar.dark
+/
+  Masthead
+  ============================================================================
+.header.container
+  .span2.offset1
+    %h1.logo Glimmer
+    %p.lead
+  .mastnav.span8
+    %ul.nav
+      :plain
+        <?
+          foreach( $shopManager->getShopPageLinks() as $mastnav ) {
+            echo ($mastnav->highLight == 1) ? '<li><a href="' . $mastnav->href . '" class="active">' . $mastnav->text .'</a></li>' . "\n" : '<li><a href="' . $mastnav->href . '">' . $mastnav->text .'</a></li>' . "\n";
+          }
+        ?>
+      / :php
+      /   foreach( $shopManager->getShopPageLinks() as $mastnav ) {
+      /     echo ($mastnav->highLight == 1) ? '<li><a href="' . $mastnav->href . '" class="active">' . $mastnav->text .'</a></li>' . "\n" : '<li><a href="' . $mastnav->href . '">' . $mastnav->text .'</a></li>' . "\n";
+      /   }
