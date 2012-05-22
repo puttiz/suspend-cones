@@ -14,13 +14,13 @@
 
 
 guard 'haml', :input => 'src', :output => 'public' do
-  watch(%r{^src/.+(\.php\.haml)})
+  watch(%r{^src/.+(\.(php|xml)\.haml)})
 end
-
+ 
 guard 'compass' do
   watch(%r{^src/(.*)\.s[ac]ss})
 end
-
+ 
 guard 'livereload' do
   # watch(%r{src/.+\.(erb|haml|slim)})
   watch(%r{public/.+\.(css|js|html|php|xml)})

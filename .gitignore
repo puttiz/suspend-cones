@@ -5,3 +5,6 @@
 .sass-cache
 Gemfile.lock
 pages_backup
+
+log
+public
