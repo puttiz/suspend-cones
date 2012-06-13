@@ -1,21 +1,15 @@
 #!/usr/bin/env ruby
 
-# Loading
+### Loading ##########################################################
 
 require "compass"
 
-Compass.add_configuration "#{File.foreach(__FILE__)}/config.rb"
-sass_options = Compass.sass_engine_options
+Compass.add_project_configuration('config.rb')
 
-# Compilation rules
+# Compass.add_configuration "#{File.dirname(__FILE__)}/config.rb"
+# sass_options = Compass.sass_engine_options
 
-compile '/assets/stylesheet/_*' do
-  # Don't compile partials
-end
-
-compile '/assets/stylesheet/*' do
-  filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
-end
+### Compilation rules ################################################
 
 compile '*' do
   if item.binary?
@@ -26,28 +20,17 @@ compile '*' do
   end
 end
 
-# Routing rules
-
-route '/assets/stylesheet/_*' do
-  nil
-end
-
-route '/assets/stylesheet/*' do
-  profile = item.identifier.split('/')[-2]
-  'assets/stylesheet/#{profile}.css'
-
-  # don't generate a directory like we do for HTML files
-  # item.identifier.chop + '.css'
-end
+### Routing rules ####################################################
 
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    item.identifier.chop
   end
 end
+
+### Layout rules #####################################################
 
 layout '*', :haml, :escape_attrs => false, :attr_wrapper => '"'

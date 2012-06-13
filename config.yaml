@@ -56,7 +56,7 @@ data_sources:
     # be the extension. For example,  a file named “content/about.html.erb”
     # will have the identifier “/about/” when turned off, but when turned on
     # it will become “/about.html/” instead.
-    allow_periods_in_identifiers: false
+    allow_periods_in_identifiers: true
 
 # Configuration for the “watch” command, which watches a site for changes and
 # recompiles if necessary.
@@ -70,7 +70,7 @@ watcher:
 
   # A list of single files to watch for changes. As mentioned above, don’t put
   # any files from the “output/” or “tmp/” directories in here.
-  files_to_watch: [ 'config.yaml', 'Rules' ]
+  files_to_watch: [ 'config.yaml', 'Rules', 'config.rb' ]
 
   # When to send notifications (using Growl or notify-send).
   notify_on_compilation_success: true

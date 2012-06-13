@@ -16,5 +16,10 @@ end
 
 desc "Auto Compile"
 task :ac do
-	system('nanoc', 'autocompile')
+  system('nanoc', 'autocompile')
+end
+
+desc "Watch"
+task :watch do
+  system('nanoc', 'watch')
 end
