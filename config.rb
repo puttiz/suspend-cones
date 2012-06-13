@@ -3,9 +3,8 @@ http_path    = '/'
 output_style = :compressed
 sass_dir     = 'content/assets/stylesheets'
 css_dir      = 'output/assets/stylesheets'
+images_dir   = 'output/assets/images'
 
-# http_path = "public/"
-# css_dir = "public/assets/stylesheets"
-# sass_dir = "src/assets/stylesheets"
-# images_dir = "public/assets/images"
-# javascripts_dir = "public/assets/javascripts"
+# sass_option = {
+# 	:syntax => :scss
+# }

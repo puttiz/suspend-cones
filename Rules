@@ -3,20 +3,26 @@
 ### Loading ##########################################################
 
 require "compass"
-
 Compass.add_project_configuration('config.rb')
 
-# Compass.add_configuration "#{File.dirname(__FILE__)}/config.rb"
-# sass_options = Compass.sass_engine_options
+sass_options = Compass.sass_engine_options
 
 ### Compilation rules ################################################
 
+compile '*.css' do
+  filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
+end
+
 compile '*' do
   if item.binary?
-    # don’t filter binary items
+    nil
   else
-    filter :haml, :escape_attrs => false, :attr_wrapper => '"'
-    layout item[:layout] ? item[:layout] : "default"
+      if item.identifier =~ %r(/_[^/]+/$)
+        nil
+      else
+        filter :haml, :escape_attrs => false, :attr_wrapper => '"'
+        layout item[:layout] ? item[:layout] : "default"
+      end
   end
 end
 
@@ -27,9 +33,17 @@ route '*' do
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-    item.identifier.chop
+      if item.identifier =~ %r(/_[^/]+/$)
+        nil
+      else
+        item.identifier.chop
+      end
   end
 end
+
+# route '/default/assets/stylesheets/*/' do
+#   item.identifier.chop
+# end
 
 ### Layout rules #####################################################
 

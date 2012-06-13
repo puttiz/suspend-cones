@@ -1,6 +1,6 @@
 require "nanoc/tasks"
 
-# task :default => :start
+task :default => :watch
  
 desc "Start Up"
 task :start do
