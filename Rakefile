@@ -1,4 +1,6 @@
-task :default => :start
+require "nanoc/tasks"
+
+# task :default => :start
  
 desc "Start Up"
 task :start do
@@ -10,4 +12,9 @@ task :start do
    
   # Guard start
   sh "bundle exec guard --no-vendor > log/guard.log &"
+end
+
+desc "Auto Compile"
+task :ac do
+	system('nanoc', 'autocompile')
 end

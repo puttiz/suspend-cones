@@ -4,7 +4,6 @@
 .DS_Store
 .sass-cache
 Gemfile.lock
-pages_backup
-
-log
-public
+tmp
+output
+output.diff
