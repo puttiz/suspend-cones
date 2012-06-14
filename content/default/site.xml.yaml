@@ -1,0 +1,12 @@
+layout: site.xml
+
+id: 2dd5e6095fe9456ab6cf74cbabf6fec8
+name: Angle
+author: puttiz w
+thumbnail: assets/images/main.png
+version: 0.0.1
+description: Angle Colors
+
+header: header.php
+footer: footer.php
+css: assets/stylesheets/global.css

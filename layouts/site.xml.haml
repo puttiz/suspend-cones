@@ -1,0 +1,41 @@
+!!! XML GBK
+%site(xsi:noNamespaceSchemaLocation="../../site.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance")
+  %id= @item[:id]
+  %name= @item[:name]
+  %author(name="#{@item[:author]}" url="http://www.taobao.com" wangwang="taobao")
+  %thumbnail= @item[:thumbnail] ? @item[:thumbnail] : "assets/images/main.png"
+  %language php
+  %version= @item[:version]
+  %apply-sites 3,7
+  %change-notes Change note
+  %description= @item[:description]
+  %global
+    %header= @item[:header]
+    %footer= @item[:footer]
+    %css= @item[:css]
+  %styles(default="style")
+    %style
+      %name style
+      %thumbnail assets/images/main.png
+      %css assets/stylesheets/style.css
+  %pages
+    %page(type="index")
+      %name main
+      %thumbnail assets/images/main.png
+      %file main.php
+      %content
+      %description index
+    %page(type="detail")
+      %name item
+      %thumbnail assets/images/main.png
+      %file item.php
+      %content
+      %description
+        %section(name="left") item_left.php
+        %section(name="right") item_right.ph
+    %page(type="list")
+      %name list
+      %thumbnail assets/images/main.png
+      %file list.php
+      %content
+      %description list
