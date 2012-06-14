@@ -6,10 +6,15 @@ require "compass"
 Compass.add_project_configuration('config.rb')
 
 sass_options = Compass.sass_engine_options
-
+haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
 ### Compilation rules ################################################
 
-compile '*.css' do
+compile %r{/_[^/]+/$} do
+  nil
+end
+
+# The base stylesheets files
+compile %r{/assets/stylesheets/} do
   filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
 end
 
@@ -17,34 +22,26 @@ compile '*' do
   if item.binary?
     nil
   else
-      if item.identifier =~ %r(/_[^/]+/$)
-        nil
-      else
-        filter :haml, :escape_attrs => false, :attr_wrapper => '"'
-        layout item[:layout] ? item[:layout] : "default"
-      end
+    filter :haml, haml_options
+    layout item[:layout] ? item[:layout] : "default"
   end
 end
 
 ### Routing rules ####################################################
+
+route %r{/_[^/]+/$} do
+  nil
+end
 
 route '*' do
   if item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]
   else
-      if item.identifier =~ %r(/_[^/]+/$)
-        nil
-      else
-        item.identifier.chop
-      end
+    item.identifier.chop
   end
 end
 
-# route '/default/assets/stylesheets/*/' do
-#   item.identifier.chop
-# end
-
 ### Layout rules #####################################################
 
-layout '*', :haml, :escape_attrs => false, :attr_wrapper => '"'
+layout '*', :haml, haml_options
