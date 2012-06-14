@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+### Loading ##########################################################
+
+require "compass"
+Compass.add_project_configuration('config.rb')
+
+sass_options = Compass.sass_engine_options
+haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
+### Compilation rules ################################################
+
+compile %r{/_[^/]+/$} do
+  nil
+end
+
+# The base stylesheets files
+compile %r{/assets/(lib|style)} do
+  if item[:extension] == 'css'
+    nil
+  else
+    filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
+  end
+end
+
+compile '*' do
+  if item.binary?
+    nil
+  else
+    filter :haml, haml_options
+    layout item[:layout] ? item[:layout] : "default"
+  end
+end
+
+### Routing rules ####################################################
+
+route %r{/_[^/]+/$} do
+  nil
+end
+
+route '*' do
+  if item.binary? || item[:extension] == 'css'
+    item.identifier.chop + '.' + item[:extension]
+  else
+    item.identifier.chop
+  end
+end
+
+### Layout rules #####################################################
+
+layout '*', :haml, haml_options
