@@ -1,25 +1,30 @@
 require "nanoc/tasks"
 
-task :default => :watch
+task :default => [:sdk, :guard, :watch]
  
-desc "Start Up"
-task :start do
-  raise unless File.exist?('Rakefile')
-   
-  # SDK start
-  # TODO Permission denied
-  sh "~/bin/DC_SDK/bin/startServer.sh > log/sdk.log &"
-   
-  # Guard start
-  sh "bundle exec guard --no-vendor > log/guard.log &"
+desc "SDK Start"
+task :sdk do
+	sh "~/bin/DC_SDK/bin/startServer.sh > tmp/sdk.log &"
 end
 
-desc "Auto Compile"
-task :ac do
-  system('nanoc', 'autocompile')
+desc "Prune"
+task :prune do
+	sh "nanoc prune --yes"
+  # system('nanoc', 'prune --yes')
 end
 
 desc "Watch"
 task :watch do
-  system('nanoc', 'watch')
+	system('nanoc', 'watch')
+end
+
+desc "Guard"
+task :guard do
+	sh "bundle exec guard --no-vendor > tmp/guard.log &"
+end
+
+desc "Dev"
+task :dev do
+	sh "bundle exec guard --no-vendor > tmp/guard.log &"
+	sh "nanoc watch"
 end

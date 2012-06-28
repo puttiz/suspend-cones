@@ -10,39 +10,40 @@ haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
 ### Compilation rules ################################################
 
 compile %r{/_[^/]+/$} do
-  nil
+	nil
 end
 
 # The base stylesheets files
 compile %r{/assets/(lib|style)} do
-  if item[:extension] == 'css'
-    nil
-  else
-    filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
-  end
+	if item[:extension] == 'css'
+		nil
+	else
+		filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
+	end
 end
 
 compile '*' do
-  if item.binary?
-    nil
-  else
-    filter :haml, haml_options
-    layout item[:layout] ? item[:layout] : "default"
-  end
+	if item.binary?
+		nil
+	else
+		filter :haml, haml_options
+		layout item[:layout] ? item[:layout] : "default"
+		filter :gbk
+	end
 end
 
 ### Routing rules ####################################################
 
 route %r{/_[^/]+/$} do
-  nil
+	nil
 end
 
 route '*' do
-  if item.binary? || item[:extension] == 'css'
-    item.identifier.chop + '.' + item[:extension]
-  else
-    item.identifier.chop
-  end
+	if item.binary? || item[:extension] == 'css'
+		item.identifier.chop + '.' + item[:extension]
+	else
+		item.identifier.chop
+	end
 end
 
 ### Layout rules #####################################################
