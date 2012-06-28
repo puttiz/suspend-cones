@@ -1,0 +1,18 @@
+.header {
+  .logo {
+    h1 {
+      text-indent: 110%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+  .supnav {
+    padding: 40px 0 0;
+
+    li {
+      display: inline-block;
+      padding: 0 25px;
+      margin: 0;
+    }
+  }
+}

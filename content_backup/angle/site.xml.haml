@@ -1,0 +1,44 @@
+!!! XML GBK
+%site(xsi:noNamespaceSchemaLocation="../../site.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance")
+  %id 2dd5e6095fe9456ab6cf74cbabf6fec8
+  %name Angle
+  %author(name="puttiz" url="http://www.taobao.com" wangwang="taobao")
+  %thumbnail assets/images/index.png
+  %language php
+  %version 0.0.1
+  %apply-sites 3,7
+  %change-notes Change note
+  %description Angle
+  %global
+    %header header.php
+    %footer footer.php
+    %css assets/stylesheets/global.css
+  %parameters
+    %param(name="colors" description="colors" ptype="text" formType="text" label="colors") #B9BBA5,#017D87,#1FAFB8,#BBCED2,#F0872C,#B5C795
+  %styles(default="style")
+    %style
+      %name style
+      %thumbnail assets/images/index.png
+      %css assets/stylesheets/style.css
+  %pages
+    %page(type="index")
+      %name index
+      %thumbnail assets/images/index.png
+      %file index.php
+      %content
+      %description index
+    %page(type="detail")
+      %name item
+      %thumbnail assets/images/index.png
+      %file item.php
+      %content
+      %description
+      %sections
+        %section(name="left") item_left.php
+        %section(name="right") item_right.php
+    %page(type="list")
+      %name list
+      %thumbnail assets/images/index.png
+      %file list.php
+      %content
+      %description list

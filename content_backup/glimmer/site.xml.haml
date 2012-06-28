@@ -1,0 +1,45 @@
+!!! XML GBK
+%site(xsi:noNamespaceSchemaLocation="../../site.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance")
+  %id 4a4a63c62ec1453e9ed38dfd323e100f
+  %name Glimmer
+  %author(name="puttiz" url="http://www.taobao.com" wangwang="taobao")
+  %thumbnail assets/images/index.png
+  %language php
+  %version 0.0.1
+  %apply-sites 3,7
+  %change-notes Change note
+  %description glimmer
+  %global
+    %header header.php
+    %footer footer.php
+    %css assets/stylesheets/global.css
+  %styles(default="glimmer")
+    %style
+      %name glimmer
+      %thumbnail assets/images/index.png
+      %css assets/stylesheets/glimmer.css
+  %pages
+    %page(type="index")
+      %name index
+      %thumbnail assets/images/index.png
+      %file index.php
+      %content
+      %description
+    %page(type="list")
+      %name shop
+      %thumbnail assets/images/index.png
+      %file shop.php
+      %content
+      %description
+    %page(type="other")
+      %name collections
+      %thumbnail assets/images/index.png
+      %file collections.php
+      %content
+      %description
+    %page(type="article")
+      %name blog
+      %thumbnail assets/images/index.png
+      %file blog.php
+      %content
+      %description

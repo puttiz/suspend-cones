@@ -1,0 +1,35 @@
+-# @TODO: Move to slideshow module -->
+:php
+	$colors = explode(',', $_SITE['colors']);
+	$length = count($colors)-1;
+	$ids = explode(',', $_MODULE['item']);
+ 
+\<div class="J_TBox wrap" <?php echo $_MODULE_TOOLBAR ?>>
+-# .J_TBox(<?php echo $_MODULE_TOOLBAR ?>)
+.slideshow.headslide.J_TWidget(data-widget-type="Carousel"
+                               data-widget-config="{'contentCls':'slide-content', 'navCls':'slide-switch', 'activeTriggerCls':'active', 'prevBtnCls':'prev', 'nextBtnCls':'next', 'effect':'fade', 'easing':'easeBoth', 'viewSize':[320], 'triggerType':'click', 'duration':'1.2'}")
+	.slide-nav
+		%span.prev
+			%a(href="#")previous
+		%span.next
+			%a(href="#")next
+	.slide-content
+		:plain
+			<?php
+				foreach ($ids as $id) {
+					$item = $itemManager->queryById($id);
+					$itemUrl = $uriManager->detailURI($item);
+					$itemTitle = $item->title;
+					$itemPrice = $item->price;
+					$itemCate = $item->itemCategoryId;
+					$itemPic = $item->getPicUrl(620);
+					$itemSold = $item->soldCount;
+ 
+					echo '<div class="slide" style="background-color: ' . $colors[rand(0, $length)] . ';">';
+					echo '<h3><a href="'. $itemUrl .'">'. $itemTitle .'</a></h3>';
+					echo '<div class="slide-img"><img src="'. $itemPic .'" width="620" height="320"></div>';
+					echo '<div class="caption">'. $itemPrice. ':'. $itemSold .'</div>';
+					echo '</div>';				
+				}
+			?>
+\</div>

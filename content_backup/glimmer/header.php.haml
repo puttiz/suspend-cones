@@ -1,0 +1,14 @@
+.bar.top.dark.wrap
+/
+  Masthead
+  ============================================================================
+.header.wrap(role="banner")
+  .logo.span2.offset1
+    %h1 Glimmer
+  %ul.supnav.span8
+    :plain
+      <?
+        foreach( $shopManager->getShopPageLinks() as $mastnav ) {
+          echo ($mastnav->highLight == 1) ? '<li><a href="' . $mastnav->href . '" class="active">' . $mastnav->text .'</a></li>' . "\n" : '<li><a href="' . $mastnav->href . '">' . $mastnav->text .'</a></li>' . "\n";
+        }
+      ?>

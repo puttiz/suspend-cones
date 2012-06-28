@@ -1,0 +1,23 @@
+!!! XML GBK
+%module(xsi:noNamespaceSchemaLocation="../../../module.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance")
+  %id carousel.item
+  %name carousel
+  %file carousel.item.php
+  %thumbnail
+  %description
+  %requiredCache true
+  %parameters
+    %param(name="img" label="url" description="924x420" ptype="url" formType="text")
+    %param(name="style" label="style" description="style" ptype="text" formType="select")
+      %option(value="dark") dark
+      %option(value="light") light
+    %param(name="list" label="list" description="list" ptype="text" formType="select")
+      %option(value="ul") ul
+      %option(value="ol") ol
+    %param(name="position" label="position" description="position" ptype="text" formType="select")
+      %option(value="lb") left-bottom
+      %option(value="lt") left-top
+      %option(value="rb") right-bottom
+      %option(value="rt") right-top
+    %param(name="item" label="item" description="item" ptype="item" formType="itemForm")
+    %param(name="cat-01" label="cat" description="cat" ptype="category" formType="categoryForm")

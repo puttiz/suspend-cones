@@ -1,0 +1,56 @@
+:php
+	$colors = explode(',', $_SITE['colors']);
+	$length = count($colors)-1;
+	$ids = explode(',', $_MODULE['item']);
+	$topCategory = $shopCategoryManager->queryAll();
+.main.J_TRegion
+	-# @TODO: Move to intro module -->
+	.intro.wrap
+		%h1 Angle for Taobao's
+		%p Angle for Taobao's.
+	:php
+		echo include_local_module("slideshow",101);
+	.content.wrap
+		%h2 hello world
+	-# @TODO: Move to bits module -->
+	.bits
+		.category-wrap.J_TWidget.hidden(data-widget-type="Popup"
+										data-widget-config="{'trigger':'.trigger', 'align':{'node':'.trigger', 'offset':[0,-6], 'points':['tr','tl']}, 'triggerType':'click'}"
+										)
+			.category-content.J_TWidget(data-widget-type="Tabs"
+										data-widget-config="{'activeTriggerCls':'active', 'contentCls':'cate-list', 'navCls':'cate-nav'}"
+										)
+				%ul.cate-nav.nav-base.nav-pills.nav-stacked
+					%li
+						%a{rbgc, zhref} 七个字七个字
+					:php
+						foreach($topCategory as $shopCategory) {
+							$cateName = $shopCategory->name;
+							$cateId = $shopCategory->id;
+							$cateUrl = $uriManager->shopCategoryURI($shopCategory);
+					%li
+						%a{rbgc, zhref}= p("$cateName")
+					:php
+						}
+				.cate-list
+					%div 连续一段中文的效果又是什么样子的呢连续一段中文的效果又是什么样子的呢连续一段中文的效果又是什么样子的呢连续一段中文的效果又是什么样子的呢
+					:php
+						foreach($topCategory as $shopCategory) {
+							$parentId = $shopCategory->id;
+							$subCategory = $shopCategoryManager->querySubCategories($parentId);
+					.hidden
+						:php
+							foreach($subCategory as $shopCategory) {
+								$cateName = $shopCategory->name;
+								$cateUrl = $uriManager->shopCategoryURI($shopCategory);
+						%span
+							%a.btn{rbgc, phref("$cateUrl")}= p("$cateName")
+						:php
+							}
+					:php
+						}
+			%span.little-arrow
+		%a.trigger.category{zhref, rbgc} category
+
+
+

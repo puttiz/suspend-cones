@@ -1,0 +1,25 @@
+:plain
+  <div class="J_TBox" <?php echo $_MODULE_TOOLBAR ?>>
+    <div class="item">
+      <?php
+        echo $_MODULE['img'] ? '<img src="'. $_MODULE['img'] .'" width="924" height="420">' : '<img src="http://placehold.it/924x420">';
+      ?>
+      <span class="tag <? echo $_MODULE['style'];?> <? echo $_MODULE['position'];?>">
+        <<? echo $_MODULE['list'];?>>
+          <?php
+            $ids   = explode(',', $_MODULE['item']);
+            foreach ($ids as $id) {
+              $item = $itemManager->queryById($id);
+              $itemUrl = $uriManager->detailURI($item);
+              $itemTitle = $item->title;
+              $itemPrice = $item->price;
+              $itemPic = $item->picUrl;
+              $itemSold = $item->soldCount;
+
+              echo '<li><a href="'. $itemUrl .'">'. $itemTitle .'</li>';
+            }
+          ?>
+        </<? echo $_MODULE['list'];?>>
+      </span>
+    </div>
+  </div>

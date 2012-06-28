@@ -1,0 +1,269 @@
+//Reset
+// @NOTE: 5 errors in SDK
+@import "compass/reset";
+
+//Core
+
+//body {background-color:#ccc;}
+
+.switch-bar {
+	display:none;
+}
+
+.container {
+	@include container-fixed();
+}
+
+.wrap {
+	@extend .container;
+	margin-bottom: $baseLineHeight;
+}
+
+.hidden {
+	display:none;
+}
+
+//Header
+.top {
+	height: 35px;
+	background: url(../images/bg_topwrapper.png) no-repeat top center;
+}
+
+.nav {
+	height: 75px;
+//  border-bottom: 1px #ccc solid;
+
+	ul {
+		text-align:left;
+
+		li {
+			float:left;
+			width: 190px;
+			height: 75px;
+			border-right: 1px #ccc solid;
+
+			&:first-child {
+				width: 240px;
+			}
+
+			.active {
+				color: red;
+			}
+		}
+	}
+}
+
+//Main
+.intro {
+//	min-height: 240px;
+	width: 650px;
+	margin-left: 240px;
+
+	h1 {
+		height: 100px;
+		width: 620px;
+		text-indent: -9999px;
+	}
+
+	p {
+		padding: 10px 30px 0px 3px;
+	}
+}
+
+
+.slideshow {
+	margin: 30px 0;
+	width: 950px;
+	position:relative;
+	@include clearfix();
+
+	.slide-content {
+		height: 350px;
+		max-height: 350px;
+		background-color:#FFF;
+		overflow: hidden;
+		@include clearfix();
+
+		.slide {
+			height: 320px;
+			width: 950px;
+			margin-top: 18px;
+			position:relative;
+			color: #fff;
+
+			h3 {
+				width: 200px;
+				padding: 100px 20px 0 20px;
+				float: left;
+				text-align:right;
+
+				font-size: 2.05em;
+				line-height: 120%;
+
+				a {
+					color: #fff;
+				}
+			}
+
+			.caption {
+				position:absolute;
+				bottom: 20px;
+				left: 20px;
+				width: 200px;
+				text-align:right;
+
+				font-style: italic;
+			}
+
+			.slide-img {
+				position:relative;
+				float:left;
+				padding: 5px 0 4px 0;
+				top: -12px;
+				width: 620px;
+				height: 320px;
+				border-top: 7px solid #9A9A8D;
+
+				img {
+					padding: 0 0 5px 0;
+					background-color:#FFF;
+					border-bottom: 1px solid #9A9A8D;
+					// @NOTE: 5 errors in SDK
+	//        @include single-transition(all, 500ms, ease-in);
+
+				}
+			}
+		}
+	}
+
+	.slide-nav {
+		span.prev, span.next {
+			display: block;
+			position:absolute;
+			top: 20px;
+			z-index: 100;
+
+			a {
+				display:block;
+				width: 30px;
+				height: 30px;
+				text-indent: -9999px;
+				background-image:url(../images/slideshow-arrow-prev.png);
+			}
+		}
+		span.prev {
+			left: 0px;
+		}
+		span.next {
+			right: 0px;
+
+			a {
+				background-image:url(../images/slideshow-arrow-next.png);
+			}
+		}
+
+	}
+
+	ul.slide-switch {
+		@include center-block();
+		@include clearfix();
+		width: 600px;
+		margin-left: 240px;
+		text-align: center;
+
+		li {
+			// @TODO: Move colors to _custom.scss
+			background-color: #ccc;
+			&:hover, &.active {
+				background-color: #48605B;
+//        @include background(linear-gradient(top,#C70015,#F8001A));
+			}
+
+			display:inline-block;
+			cursor: pointer;
+			@include hide-text;
+			// @NOTE: 2 errors in SDK
+			@include border-radius(8px);
+			@include box-shadow(rgba(0, 0, 0, 0.3) 0 0 0,rgba(0, 0, 0, 0.3) 0 1px 2px inset);
+			margin: 2px 6px 2px 2px;
+			width: 10px;
+			height: 10px;
+		}
+	}
+}
+
+.bits {
+//	border: 1px solid #BEBEBE;
+//	border-left: none;
+	display: block;
+	position:fixed;
+	left: 0;
+	top: 250px;
+	z-index: 890;
+	height: 22px;
+	width: 22px;
+//	@include border-top-right-radius(3px);
+//	@include border-bottom-right-radius(3px);
+//	@include single-box-shadow(rgba(0, 0, 0, 0.10), 1px, 1px, 3px);
+//	@include single-transition(margin-top 2s linear);
+
+	&:hover {
+//		margin-top: 100px;
+	}
+
+	a.trigger {
+		text-indent:-9999px;
+		cursor:pointer;
+		display:block;
+		float:left;
+		width: 22px;
+		height: 22px;
+		background: url(../images/bits-arrow-next.png) left bottom no-repeat;
+	}
+
+	.category-wrap {
+		position:absolute;
+		left: 23px;
+		top: -6px;
+		padding-left: 15px;
+		width: 400px;
+	}
+
+	.category-content {
+		@include clearfix();
+		position:relative;
+		overflow:hidden;
+//		width: 318px;
+		background-color:#FFF;
+		border: 1px solid #BEBEBE;
+		@include border-radius(3px);
+		@include single-box-shadow(rgba(0, 0, 0, 0.10), 1px, 1px, 3px);
+		padding: 5px 10px;
+
+		ul.cate-nav {
+			float:right;
+			max-width: 110px;
+//			height: 100%;
+			padding-left: 10px;
+			margin-left: 8px;
+			border-left: 1px solid #BEBEBE;
+		}
+
+		.cate-list {
+//			float:left;
+//			padding-right: 120px;
+			margin: 7px 0;
+		}
+	}
+
+	.little-arrow {
+		background: url(../images/cate_arrow.gif) no-repeat left top;
+		display:block;
+		position:absolute;
+		left: 11px;
+		top: 15px;
+		height: 8px;
+		width: 5px;
+		z-index: 910;
+	}
+}

@@ -1,0 +1,26 @@
+/
+  Browsing
+  ============================================================================
+.search.wrap
+  %h2 search:
+  %ul.nav.row
+    %li.span4.offset4
+      %a.dropdown-toggle all items
+      .dropdown.navbar.span12
+        .navbar-inner.expose.dark
+          %h2 search
+
+/
+  Marketing
+  ============================================================================
+.marketing.wrap
+  %ul.thumbnails
+    - (1...10).each do
+      %li.span3
+        .thumbnail.expose.light.p
+          %a(href="#")
+            %img(src="http://placehold.it/204x200")
+          %h4 name
+          %span.label.label-warning info
+
+/ /marketing

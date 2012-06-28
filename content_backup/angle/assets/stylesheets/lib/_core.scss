@@ -1,0 +1,56 @@
+// NAVIGATIONS
+// -----------
+.nav-base {
+	margin-left: 0;
+	list-style: none;
+	
+	li a {
+		display: block;
+		color: white;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: none;
+			color: #9A9A8D;
+		}
+	}
+}
+
+.nav-pills {
+	@include clearfix();
+
+	li {
+		float:left;
+		margin: 10px 2px;
+
+		a {
+			@include pills;
+		}
+	}
+}
+
+.nav-stacked li {
+	float: none;
+
+	a {
+		margin-right: 0;
+	}
+}
+
+// BUTTON STYLES
+// -------------
+
+.btn {
+	@include inline-block;
+	color: #fff;
+	cursor: pointer;
+	@include pills;
+	background-image:url(../images/bg-stripes-light.gif);
+
+	&:hover {
+		text-decoration: none;
+		color: #333;
+	}
+}
+
+

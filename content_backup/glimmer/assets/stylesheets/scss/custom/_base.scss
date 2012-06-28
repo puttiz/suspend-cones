@@ -1,0 +1,12 @@
+// STRUCTURAL
+// -----------------
+
+.wrap {
+  @extend .container;
+  margin-bottom: $baseLineHeight;
+}
+
+.bar {
+  &.top { @include bar($black, 0 0 3px 3px); }
+  &.bottom { @include bar($black, 3px 3px 0 0); }
+}

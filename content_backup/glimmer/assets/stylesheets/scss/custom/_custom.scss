@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  color: $textColor;
+//  background-color: $white;
+//  background: url(#{$assets}/bg-repeat.png) repeat 0 0 #dfd5c9;
+  @include background-img($bgcolor, $bodyBackgroundPath);
+}
+
+// LINKS
+// -----
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+}
+a:hover {
+  color: $linkColorHover;
+  text-decoration: underline;
+}
+
+// Style
+// -----
+
+.bar {
+  &.dark { @include background-img($black, $darkBackgroundPath); }
+  &.light { @include background-img($white, $lightBackgroundPath); }
+}
+
+.logo h1 {
+  width: 105px;
+  height: 100px;
+  background: url($logoImgPath) 0 0 no-repeat;
+
+  &:hover {
+    border: 0;
+    background: url($logoImgPath) 0 -102px no-repeat;
+  }
+}
+
+.supnav li a {
+    @include nav-link-font($black);
+
+    &.active {
+      padding-bottom: 3px;
+      border-bottom: 3px solid $orange;
+    }
+
+    &:hover, &:focus {
+      background-color: none;
+      padding-bottom: 3px;
+      border-bottom: 3px solid $blue;
+    }
+}
+
+.expose {
+  &.light, &.dark {
+    padding: 7px;
+    border: 1px solid lighten($black, 65%);
+//    @include border-radius(5);
+    @include background-img(rgba($white, .3), $lightBackgroundPath);
+    @include box-shadow(1px 1px 15px rgba($black, .3));
+  }
+
+  &.dark {
+    @include background-img(rgba($black, .3), $darkBackgroundPath);
+  }
+}
+
+.switch li {
+  background-color: $grayLight;
+  border: 2px solid $grayLighter;
+
+  &:hover {
+    background-color: $blue;
+  }
+  &.active {
+    background-color: $orange;
+  }
+}
+
+.tag {
+  &.light {
+    @include slide-span-style($gray, $white, $lightBackgroundPath);
+    a {
+      @include slide-span-link($gray, $blue);
+    }
+  }
+  &.dark {
+    @include slide-span-style($grayLight, $white, $darkBackgroundPath);
+    a {
+      @include slide-span-link($grayLight, $orange);
+    }
+  }
+}

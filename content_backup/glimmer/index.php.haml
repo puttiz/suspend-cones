@@ -1,0 +1,34 @@
+/
+  Feature
+  ============================================================================
+.feature.wrap
+  .J_TWidget.carousel(data-widget-type="Carousel" data-widget-config="{'navCls':'switch', 'contentCls':'slider', 'activeTriggerCls':'active', 'effect':'fade', 'easing':'easeBoth', 'triggerType':'click', 'duration':'1.2'}")
+    .expose.light
+      .slider.J_TRegion
+        :plain
+          <?php
+            echo include_local_module("carousel.item",101);
+            echo include_local_module("carousel.item",102);
+            echo include_local_module("carousel.item",103);
+            echo include_local_module("carousel.item",104);
+            echo include_local_module("carousel.item",105);
+          ?>
+    %ul.switch
+      %li.active &bull;
+      %li &bull;
+      %li &bull;
+      %li &bull;
+      %li &bull;
+/
+  Marketing
+  ============================================================================
+.marketing.wrap
+  %ul.thumbnails
+    - (0...5).each do |i|
+      %li.span4
+        .thumbnail.expose.light.f
+          %div(class="trigger#{i}")
+            %img(src="http://placehold.it/284x200/12aee8")
+            .J_TWidget.popup.hidden(data-widget-type="Popup" data-widget-config="{'trigger':'.trigger#{i}', 'align':{'node':'.trigger#{i}', 'offset':[0,0], 'points':['cc','cc']}, 'effect':'fade'}")
+              %img(src="http://placehold.it/284x200/f27b04")
+/ /marketing
