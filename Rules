@@ -9,6 +9,10 @@ sass_options = Compass.sass_engine_options
 haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
 ### Compilation rules ################################################
 
+compile %r{^/_.+/$} do
+	nil
+end
+
 compile %r{/_[^/]+/$} do
 	nil
 end
@@ -33,6 +37,10 @@ compile '*' do
 end
 
 ### Routing rules ####################################################
+
+route %r{^/_.+/$} do
+	nil
+end
 
 route %r{/_[^/]+/$} do
 	nil
