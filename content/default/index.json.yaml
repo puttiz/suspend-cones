@@ -1,0 +1,10 @@
+---
+layout: page.json
+
+title: Index
+layouts:
+  - type: grid-m
+    modules:
+      main:
+        - moduleID: undefine
+---

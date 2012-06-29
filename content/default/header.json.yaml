@@ -1,0 +1,11 @@
+---
+layout: page.json
+
+title: Header
+layouts:
+  - type: head
+    modules:
+      main:
+        - moduleID: undefine
+          moduleVersion: undefine
+---

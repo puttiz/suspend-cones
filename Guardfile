@@ -3,4 +3,4 @@
 
 guard 'livereload' do
 	watch(%r{output/.+\.(css|js|html|php|xml)})
-en
+end

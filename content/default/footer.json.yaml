@@ -1,0 +1,10 @@
+---
+layout: page.json
+
+title: Footer
+layouts:
+  - type: foot
+    modules:
+      main:
+        - moduleID: undefine
+---

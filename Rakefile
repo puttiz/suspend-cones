@@ -4,8 +4,7 @@ task :default => [:sdk, :guard, :watch]
  
 desc "SDK Start"
 task :sdk do
-	# sh "~/bin/DC_SDK/bin/startServer.sh > tmp/sdk.log &"
-	sh "~/bin/tae-sdk/TAE_SDK/bin/startServer.sh > tmp/sdk.log &"
+	sh "~/bin/tae-sdk/TAE_SDK/bin/rstartServer.sh > tmp/sdk.log &"
 end
 
 desc "Prune"

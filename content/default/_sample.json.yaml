@@ -1,0 +1,16 @@
+---
+layout: page.json
+
+title: undefine
+layouts:
+  # layouts list: head, foot, grid-m(950), grid-(m0,s5), grid-(m0,s5,e5)
+  - type: grid-m
+    modules:
+      # region class list: main, sub, extra
+      main:
+        # module list
+          # module id
+        - moduleID: undefine
+          # module version
+          moduleVersion: undefine
+---
