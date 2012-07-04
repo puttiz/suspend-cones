@@ -3,7 +3,7 @@ module XMLSiteHelper
 	def xml_site(item)
 		require 'nokogiri'
 
-		output = Nokogiri::XML::Builder.new(:encoding => 'gbk') do |xml|
+		output = Nokogiri::XML::Builder.new(:encoding => 'GBK') do |xml|
 			# site
 			xml.site {
 				item[:site].each do |name,value|
@@ -12,7 +12,7 @@ module XMLSiteHelper
 				
 				# author
 				xml.author( :wangwang => item[:author][:wangwang], :url => item[:author][:url], :name => item[:author][:name] ) {
-					xml.text "#{item[:author][:name]}"
+					xml.text ""
 				}
 
 				# global
@@ -27,7 +27,6 @@ module XMLSiteHelper
 					item[:themes].each do |theme|
 						xml.theme( :name => theme[:name] ) {
 							xml.css theme[:css]
-							xml.rule theme[:rule]
 						}
 					end
 				}
@@ -36,7 +35,6 @@ module XMLSiteHelper
 				xml.pages {
 					item[:pages].each do |p|
 						xml.page( :type => p[:type]) {
-							# TODO gbk
 							xml.name p[:name]
 							xml.file p[:file]
 							xml.thumbnail p[:thumbnail]

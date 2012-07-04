@@ -1,3 +1,4 @@
 include ApplicationHelper
 include AttributeHelper
 include XMLSiteHelper
+include XMLModuleHelper
