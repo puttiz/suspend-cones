@@ -7,7 +7,7 @@ group :development do
 end
 
 # gem 'adsf'      # for viewing
-gem 'builder'   # for feeds
+# gem 'builder'   # for feeds
 gem 'compass'   # for advanced CSS
 gem 'haml'      # for layouts with clean sources
 gem 'sass'
