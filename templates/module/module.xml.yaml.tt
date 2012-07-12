@@ -1,0 +1,13 @@
+module:
+  id: <%= filename %>
+  name: <%= name.upcase %>
+  thumbnail: assets/images/<%= filename %>.png
+  description: <%= name.upcase %>
+  requiredCache: true
+  supportedWidth: 950
+  theme: default
+
+theme:
+  - name: default
+
+parameters:
