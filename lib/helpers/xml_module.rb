@@ -33,15 +33,43 @@ module XMLModuleHelper
 
 				# parameters
 				xml.parameters {
-					# item[:parameters].each do |p|
-					# 	#
-					# end
+					item[:group].each do |group|
+						xml.group(
+							:title => group[:title],
+							:description => group[:description]
+						) {
+							group[:section].each do |section|
+								xml.section_(
+									:title => section[:title],
+									:description => section[:description],
+									:folded => section[:folded]
+								) {
+									section[:param].each do |param|
+										xml.param(
+											:name => param[:name],
+											:label => param[:label],
+											:description => param[:description],
+											:formType => param[:formType],
+											:ptype => param[:ptype],
+											:readonly => param[:readonly] ? param[:readonly] : false ,
+											:disabled => param[:disabled] ? param[:disabled] : false ,
+											:localImage => param[:localImage] ? param[:localImage] : false ,
+											:localImageSplit => param[:localImageSplit] ? param[:localImageSplit] : "" ,
+										) {
+											xml.text "#{param[:value]}"
+										}
+									end
+								}
+							end
+						}
+					end
 				}
 
 			}
 		end
 
 		output.to_xml
+
 	end
 
 end

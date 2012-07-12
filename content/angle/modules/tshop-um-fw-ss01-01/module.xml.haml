@@ -1,0 +1,34 @@
+---
+module:
+  id: tshop-um-fw-ss01-01
+  name: slideshow
+  thumbnail: assets/images/fw-ss01-01.png
+  description: FW-SS01-01
+  requiredCache: true
+  supportedWidth: 950
+  theme: default
+
+themes:
+  - name: default
+
+group:
+  - title: group_title
+    description: group_desc
+    section:
+      - title: section_title
+        folded: false
+        description: section_desc
+        param:
+          - name: item
+            description: item
+            label: item
+            formType: itemForm
+            ptype: item
+            value: 
+            readonly: false
+            disabled: false
+            localImage: false
+            localImageSplit:
+
+---
+= xml_module(@item)
