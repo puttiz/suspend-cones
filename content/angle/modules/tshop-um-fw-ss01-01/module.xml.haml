@@ -12,23 +12,36 @@ themes:
   - name: default
 
 group:
-  - title: group_title
-    description: group_desc
+  - title: item slideshow
+    description: item slideshow
     section:
-      - title: section_title
+      - title: items select
         folded: false
-        description: section_desc
+        description: items select
         param:
           - name: item
             description: item
             label: item
             formType: itemForm
             ptype: item
-            value: 
+            value: "2,5,15,13"
             readonly: false
             disabled: false
             localImage: false
             localImageSplit:
+      - title: view config
+        folded: true
+        param:
+          - name: effect
+            label: effect
+            formType: select
+            ptype: text
+            value:
+            option:
+              - value: fade
+              - value: scrolly
+              - value: scrollx
+              - value: none
 
 ---
 = xml_module(@item)

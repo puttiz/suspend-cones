@@ -1,0 +1,41 @@
+//Clearfix
+@mixin clearfix() {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+//Center-align a block level element
+@mixin center-block() {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+//Site container
+@mixin container-fixed() {
+	width: $containerWidth;
+	margin-left:auto;
+	margin-right:auto;
+	@include clearfix();
+}
+
+//
+// 
+// @TODO: Add docs to pills!
+//
+@mixin pills {
+	margin: 5px 5px 0 0;
+	padding: 5px 9px;
+//	line-height: 14px;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	@include border-radius(4px);
+}

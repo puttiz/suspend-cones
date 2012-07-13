@@ -1,26 +1,29 @@
 .tb-module.tshop-um.tshop-um-fw-ss01-01
-	.slideshow.headslide.J_TWidget(data-widget-type="Carousel"
-                               data-widget-config="{'contentCls':'slide-content', 'navCls':'slide-switch', 'activeTriggerCls':'active', 'prevBtnCls':'prev', 'nextBtnCls':'next', 'effect':'fade', 'easing':'easeBoth', 'viewSize':[320], 'triggerType':'click', 'duration':'1.2'}")
-	.slide-nav
-		%span.prev
-			%a(href="#")previous
-		%span.next
-			%a(href="#")next
-	.slide-content
-		:php
-			$ids = explode(',', $_MODULE['item']);
-			foreach ($ids as $id) {
-				$item = $itemManager->queryById($id);
-				$itemUrl = $uriManager->detailURI($item);
-				$itemTitle = $item->title;
-				$itemPrice = $item->price;
-				$itemCate = $item->itemCategoryId;
-				$itemPic = $item->getPicUrl(620);
-				$itemSold = $item->soldCount;
-
-				echo '<div class="slide">';
-				echo '<h3><a href="'. $itemUrl .'">'. $itemTitle .'</a></h3>';
-				echo '<div class="slide-img"><img src="'. $itemPic .'" width="620" height="320"></div>';
-				echo '<div class="caption">'. $itemPrice. ':'. $itemSold .'</div>';
-				echo '</div>';				
-			}
+	.J_TWidget.carousel.slide{carousel}
+		/ Carousel nav
+		%a.carousel-control.left &lsaquo;
+		%a.carousel-control.right &rsaquo;
+		/ Carousel items
+		.carousel-inner
+			:php
+				$ids = explode(',', $_MODULE['item']);
+				foreach ($ids as $id) {
+					$item = $itemManager->queryById($id);
+					$itemUrl = $uriManager->detailURI($item);
+					$itemTitle = $item->title;
+					$itemPrice = $item->price;
+					$itemCate = $item->itemCategoryId;
+					$itemPic = $item->getPicUrl(620);
+					$itemSold = $item->soldCount;
+			.item
+				.img
+					%img{psrc("$itemPic"), width: "620", height: "320"}
+				.caption
+					%h3
+						%a{phref("$itemUrl")}= p("$itemTitle")
+					%p
+						=p("$itemPrice")
+						&amp;
+						=p("$itemSold")
+			:php
+				}

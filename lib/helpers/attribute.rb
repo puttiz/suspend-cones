@@ -1,21 +1,24 @@
 module AttributeHelper
 	def rbgc(color = "<?= $colors[rand(0, $length)] ?>")
-		{ :style => "background-color: #{color}" }
+		{ style: "background-color: #{color}" }
 	end
 
 	def phref(url)
-		{ :href => "<?= #{url} ?>"}
+		{ href: "<?= #{url} ?>"}
+	end
+
+	def psrc(url)
+		{ src: "<?= #{url} ?>"}
 	end
 
 	def zhref
-		{ :rel => "nofollow"}
+		{ rel: "nofollow"}
 	end
 
-	# def w_tabs
-	# 	{:class => "J_TWidget",
-	# 	 :date-widget-type => "Tabs",
-	# 	 :date-widget-config => "{'effect' = 'fade', 'navCls' = 'cate-nav', 'contentCls' = 'cate-list', 'triggerType' = 'click', 'activeTriggerCls' = 'active'
-	# 	 }"
-	# 	}
-	# end
+	def carousel
+		{
+			:'data-widget-type' => "Carousel",
+			:'data-widget-config' => "{'contentCls':'carousel-inner', 'navCls':'carousel-switch', 'activeTriggerCls':'active', 'prevBtnCls':'left', 'nextBtnCls':'right', 'effect':'<?=$_MODULE['effect']?>', 'easing':'easeBoth', 'triggerType':'click', 'duration':'1.2'}"
+		}
+	end
 end

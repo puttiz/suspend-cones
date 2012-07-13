@@ -1,3 +1,5 @@
+require 'compass_twitter_bootstrap'
+
 project_path = File.dirname(__FILE__)
 http_path    = '/'
 output_style = :expanded

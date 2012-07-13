@@ -6,20 +6,15 @@ module XMLModuleHelper
 		output = Nokogiri::XML::Builder.new(:encoding => 'GBK') do |xml|
 			# module
 			xml.module {
-				# item[:module].each do |name,value|
-				# 	xml.send(name,value)
-				# end
 
-				xml.id item[:module][:id]
-				xml.name item[:module][:name]
-				xml.file {
-					xml.text "#{item[:module][:id]}.php"
-				}
-				xml.thumbnail "#{item[:module][:thumbnail]}"
+				xml.id             item[:module][:id]
+				xml.name           item[:module][:name]
+				xml.file           "#{item[:module][:id]}.php"
+				xml.thumbnail      item[:module][:thumbnail]
 				xml.description( "xsi:type" => "xs:string", "xmlns:xs" => "http://www.w3.org/2001/XMLSchema", "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance" ) {
 						xml.text "#{item[:module][:description]}"
 					}
-				xml.requiredCache item[:module][:requiredCache]
+				xml.requiredCache  item[:module][:requiredCache]
 				xml.supportedWidth item[:module][:supportedWidth]
 				
 				# themes
@@ -57,6 +52,13 @@ module XMLModuleHelper
 											:localImageSplit => param[:localImageSplit] ? param[:localImageSplit] : "" ,
 										) {
 											xml.text "#{param[:value]}"
+											if param[:formType] == "select"
+												param[:option].each do |option|
+													xml.option( :value => option[:value] ) {
+														xml.text "#{option[:value]}"
+													}
+												end
+											end
 										}
 									end
 								}

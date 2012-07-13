@@ -16,4 +16,8 @@ module ApplicationHelper
 		JSON.pretty_generate(item)
 	end
 
+	def stylesheets
+		File.expand_path("../stylesheets",File.dirname(__FILE__))
+	end
+
 end
