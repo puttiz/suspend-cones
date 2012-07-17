@@ -19,6 +19,22 @@
 			display:block;
 			line-height: 1;
 		}
+
+		.caption {
+			width: 100%;
+			position:absolute;
+//			left: 0;
+//			right: 0;
+			bottom: 0;
+			padding: 10px 15px 5px;
+			background: $grayDarker;
+			background: rgba(0,0,0,.75);
+
+			h4, p {
+				color: $white;
+				margin: 0 0 9px;
+			}
+		}
 	}
 }
 
