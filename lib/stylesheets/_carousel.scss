@@ -29,8 +29,8 @@
 	width: 40px;
 	height: 40px;
 	margin-top: -20px;
-//	@include hide-text;
 	text-align: center;
+	cursor:pointer;
 	color: $white;
 	background:$grayDarker;
 	border: 3px solid $white;
@@ -42,9 +42,21 @@
 		right: 15px;
 	}
 
+	&:hover {
+		color:$white;
+		text-decoration: none;
+		@include opacity(0.9);
+	}
+
 //	.icon-arrow-left, .icon-arrow-right {
 //		@include icon-white;
 //	}
+	i {
+		@include icon;
+		@include hide-text;
+		margin-top: 12px;
+	}
+
 	@include all-carousel-sprites;
 
 }
