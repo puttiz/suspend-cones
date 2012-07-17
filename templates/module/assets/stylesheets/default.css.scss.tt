@@ -1,5 +1,5 @@
-@import "../../../../../../lib/stylesheets/bootstrap";
-@import "../../../../../../lib/stylesheets/cones";
+@import "cones";
 .<%= filename %> {
+	// @import partials
 	
 }

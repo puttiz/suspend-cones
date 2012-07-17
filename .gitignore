@@ -4,6 +4,7 @@
 .DS_Store
 .sass-cache
 Gemfile.lock
+/assets
 tmp
 output
 output.diff

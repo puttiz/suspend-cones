@@ -1,9 +1,40 @@
-@import "../../../../../../lib/stylesheets/bootstrap";
-@import "../../../../../../lib/stylesheets/cones";
+@import "cones";
+@import "carousel/*.png";
 .tshop-um-fw-ss01-01 {
-	@import "compass_twitter_bootstrap/carousel";
+	// @import partials
+	@import "carousel";
 	.carousel {
+		margin: 30px 0;
 		max-width: 950px;
+		height: 320px;
 		background-color:#ccc;
+
+		.carousel-outer {
+			width: 620px;
+			padding: 5px 0 4px 0;
+			top: -12px;
+			left: 200px;
+			border-top: 7px solid #9A9A8D;
+			border-bottom: 1px solid #9A9A8D;
+			background-color:#FFF;
+		}
+
+		.carousel-inner {
+			height: 320px;
+		}
+
+		.carousel-control {
+			
+		}
+
+		.carousel-switch {
+			top: -5px;
+			width: 620px;
+			margin-left: 200px;
+		}
+
+		.caption{
+			display:none;
+		}
 	}
 }

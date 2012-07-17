@@ -1,2 +1,3 @@
-.tb-module.tshop-um.<%= filename %>
+.tb-module.tshop-um.section.<%= filename %>
 	
+/ /.section.<%= filename %>
