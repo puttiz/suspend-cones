@@ -9,7 +9,6 @@
 	overflow:hidden;
 	width: 100%;
 	position:relative;
-//	@include center-block;
 }
 
 .carousel {
@@ -64,9 +63,6 @@
 		@include opacity(0.9);
 	}
 
-//	.icon-arrow-left, .icon-arrow-right {
-//		@include icon-white;
-//	}
 	i {
 		@include icon;
 		@include hide-text;
