@@ -5,6 +5,8 @@
 			.carousel-inner
 				.carousel-items
 					:php
+						$colors = explode(',', $_MODULE['colors']);
+						$length = count($colors)-1;
 						$ids = explode(',', $_MODULE['item']);
 						foreach ($ids as $id) {
 							$item = $itemManager->queryById($id);
@@ -14,8 +16,7 @@
 							$itemCate = $item->itemCategoryId;
 							$itemPic = $item->getPicUrl(620);
 							$itemSold = $item->soldCount;
-					.item
-						%img{psrc("$itemPic"), width: "620", height: "320"}
+					.item{rbgc}
 						.caption
 							%h4
 								%a{phref("$itemUrl")}= p("$itemTitle")
@@ -23,6 +24,7 @@
 								=p("$itemPrice")
 								&amp;
 								=p("$itemSold")
+						%img{psrc("$itemPic"), width: "620", height: "320"}
 					:php
 						}
 		/ Carousel nav
