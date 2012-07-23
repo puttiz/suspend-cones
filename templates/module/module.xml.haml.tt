@@ -2,7 +2,7 @@
 module:
   id: <%= filename %>
   name: <%= name.upcase %>
-  thumbnail: assets/images/<%= filename %>.png
+  thumbnail: assets/images/<%= name %>.png
   description: <%= name.upcase %>
   requiredCache: true
   supportedWidth: 950
@@ -11,6 +11,26 @@ module:
 themes:
   - name: default
 
-parameters:
+group:
+  - title: [group_title]
+    description: [group_desc]
+    section:
+      - title: [section_title]
+        folded: [true]
+        description: [section_desc]
+        param:
+          - name: [param_name]
+            description: [param_desc]
+            label: [param_label]
+            formType: [select]
+            ptype: [number]
+            value: [value]
+            readonly: false
+            disabled: false
+            localImage: false
+            localImageSplit:
+            option:
+              - value: [value]
+                selected: true
 ---
 = xml_module(@item)

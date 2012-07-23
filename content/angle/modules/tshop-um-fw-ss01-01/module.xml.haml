@@ -1,0 +1,54 @@
+---
+module:
+  id: tshop-um-fw-ss01-01
+  name: slideshow
+  thumbnail: assets/images/fw-ss01-01.png
+  description: FW-SS01-01
+  requiredCache: true
+  supportedWidth: 950
+  theme: default
+
+themes:
+  - name: default
+
+group:
+  - title: item slideshow
+    description: item slideshow
+    section:
+      - title: items select
+        folded: false
+        description: items select
+        param:
+          - name: item
+            description: item
+            label: item
+            formType: itemForm
+            ptype: item
+            value: "2,5,15,13,1,10"
+            readonly: false
+            disabled: false
+            localImage: false
+            localImageSplit:
+      - title: view config
+        folded: true
+        param:
+          - name: effect
+            label: effect
+            formType: select
+            ptype: text
+            value:
+            option:
+              - value: fade
+              - value: scrollx
+              - value: scrolly
+              - value: none
+            readonly: true
+          - name: colors
+            label: clolors
+            formType: text
+            ptype: text
+            value: "#dd1d31, #3d3331, #c46092. #76b0be, #b23658, #ff7e00, #65bfb8, #c6546d"
+            readonly: true
+
+---
+= xml_module(@item)
