@@ -3,7 +3,6 @@ class GBKFilter < Nanoc::Filter
   type :text => :text
 
   def run(content, params={})
-    content.encode!("gbk", "utf-8")
+    content.encode!('gbk', 'utf-8')
   end
-
 end

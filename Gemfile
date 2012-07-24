@@ -2,8 +2,8 @@ source :rubygems
 
 group :development do
   gem 'growl'
-  gem 'guard', "1.0.3"
-  gem 'guard-livereload', "0.4.2"
+  gem 'guard', '1.0.3'
+  gem 'guard-livereload', '0.4.2'
 end
 
 gem 'haml'

@@ -10,13 +10,13 @@ module Project
     @require_arguments
 
     def self.source_root
-      File.expand_path("../templates", File.dirname(__FILE__))
+      File.expand_path('../templates', File.dirname(__FILE__))
     end
 
     def setup_project
       path = "../content/#{name}"
       self.destination_root = File.expand_path(path, File.dirname(__FILE__))
-      directory("project", destination_root)
+      directory('project', destination_root)
     end
 
   end

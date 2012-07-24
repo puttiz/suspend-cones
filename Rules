@@ -36,7 +36,7 @@ compile '*' do
     nil
   else
     filter :haml, haml_options
-    layout item[:layout] ? item[:layout] : "default"
+    layout item[:layout] ? item[:layout] : 'default'
     filter :gbk
   end
 end

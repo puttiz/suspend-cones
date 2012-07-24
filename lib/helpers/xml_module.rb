@@ -11,16 +11,20 @@ module XMLModuleHelper
         xml.name           item[:module][:name]
         xml.file           "#{item[:module][:id]}.php"
         xml.thumbnail      item[:module][:thumbnail]
-        xml.description( "xsi:type" => "xs:string", "xmlns:xs" => "http://www.w3.org/2001/XMLSchema", "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance" ) {
+        xml.description(
+          "xsi:type"  => "xs:string",
+          "xmlns:xs"  => "http://www.w3.org/2001/XMLSchema",
+          "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"
+        ) {
             xml.text "#{item[:module][:description]}"
           }
         xml.requiredCache  item[:module][:requiredCache]
         xml.supportedWidth item[:module][:supportedWidth]
         
         # themes
-        xml.themes( :default => item[:module][:theme] ) {
+        xml.themes(:default => item[:module][:theme]) {
           item[:themes].each do |theme|
-            xml.theme( :name => theme[:name] ) {
+            xml.theme(:name => theme[:name]) {
               xml.css "assets/stylesheets/#{theme[:name]}.css"
             }
           end
@@ -54,7 +58,7 @@ module XMLModuleHelper
                       xml.text "#{param[:value]}"
                       if param[:formType] == "select"
                         param[:option].each do |option|
-                          xml.option( :value => option[:value] ) {
+                          xml.option(:value => option[:value]) {
                             xml.text "#{option[:value]}"
                           }
                         end

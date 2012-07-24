@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def stylesheets
-    File.expand_path("../stylesheets",File.dirname(__FILE__))
+    File.expand_path('../stylesheets', File.dirname(__FILE__))
   end
 
 end
