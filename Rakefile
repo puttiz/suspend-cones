@@ -4,27 +4,27 @@ task :default => [:sdk, :guard, :watch]
  
 desc "SDK Start"
 task :sdk do
-	sh "~/bin/tae-sdk/TAE_SDK/bin/rstartServer.sh > tmp/sdk.log &"
+  sh "~/bin/tae-sdk/TAE_SDK/bin/rstartServer.sh > tmp/sdk.log &"
 end
 
 desc "Prune"
 task :prune do
-	sh "nanoc prune --yes"
+  sh "nanoc prune --yes"
   # system('nanoc', 'prune --yes')
 end
 
 desc "Watch"
 task :watch do
-	system('nanoc', 'watch')
+  system('nanoc', 'watch')
 end
 
 desc "Guard"
 task :guard do
-	sh "bundle exec guard --no-vendor > tmp/guard.log &"
+  sh "bundle exec guard --no-vendor > tmp/guard.log &"
 end
 
 desc "Dev"
 task :dev do
-	sh "bundle exec guard --no-vendor > tmp/guard.log &"
-	sh "nanoc watch"
+  sh "bundle exec guard --no-vendor > tmp/guard.log &"
+  sh "nanoc watch"
 end
