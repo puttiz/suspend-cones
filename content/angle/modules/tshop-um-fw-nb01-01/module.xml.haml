@@ -1,0 +1,36 @@
+---
+module:
+  id: tshop-um-fw-nb01-01
+  name: navigation
+  thumbnail: assets/images/fw-nb01-01.png
+  description: FW-NB01-01
+  requiredCache: true
+  supportedWidth: 950
+  theme: default
+
+themes:
+  - name: default
+
+/ group:
+/   - title: [group_title]
+/     description: [group_desc]
+/     section:
+/       - title: [section_title]
+/         folded: [true]
+/         description: [section_desc]
+/         param:
+/           - name: [param_name]
+/             description: [param_desc]
+/             label: [param_label]
+/             formType: [select]
+/             ptype: [number]
+/             value: [value]
+/             readonly: false
+/             disabled: false
+/             localImage: false
+/             localImageSplit:
+/             option:
+/               - value: [value]
+/                 selected: true
+---
+= xml_module(@item)
