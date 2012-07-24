@@ -31,7 +31,7 @@ module XMLModuleHelper
         }
 
         # parameters
-        xml.parameters {
+        item[:group] and xml.parameters {
           item[:group].each do |group|
             xml.group(
               :title => group[:title],
@@ -70,7 +70,6 @@ module XMLModuleHelper
             }
           end
         }
-
       }
     end
 

@@ -27,7 +27,7 @@ module XMLSiteHelper
         }
 
         # themes
-        xml.themes(:default => item[:default_themes]) {
+        item[:themes] and xml.themes(:default => item[:default_themes]) {
           item[:themes].each do |theme|
             xml.theme(:name => theme[:name]) {
               xml.css theme[:css]
@@ -36,7 +36,7 @@ module XMLSiteHelper
         }
 
         # pages
-        xml.pages {
+        item[:pages] and xml.pages {
           item[:pages].each do |p|
             xml.page(:type => p[:type]) {
               xml.name      p[:name]
