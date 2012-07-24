@@ -1,34 +1,34 @@
 .tb-module.tshop-um.tshop-um-fw-ss01-01
-	.J_TWidget.carousel.slide{carousel}
-		/ Carousel items
-		.carousel-outer
-			.carousel-inner
-				.carousel-items
-					:php
-						$colors = explode(',', $_MODULE['colors']);
-						$length = count($colors)-1;
-						$ids = explode(',', $_MODULE['item']);
-						foreach ($ids as $id) {
-							$item = $itemManager->queryById($id);
-							$itemUrl = $uriManager->detailURI($item);
-							$itemTitle = $item->title;
-							$itemPrice = $item->price;
-							$itemCate = $item->itemCategoryId;
-							$itemPic = $item->getPicUrl(620);
-							$itemSold = $item->soldCount;
-					.item{rbgc}
-						.caption
-							%h4
-								%a{phref("$itemUrl")}= p("$itemTitle")
-							%p
-								=p("$itemPrice")
-								=p("$itemSold")
-						%img{psrc("$itemPic"), width: "620", height: "320"}
-					:php
-						}
-		/ Carousel nav
-		%a.carousel-control.left
-			%i.carousel-arrow-left &lsaquo;
-		%a.carousel-control.right
-			%i.carousel-arrow-right &rsaquo;
+  .J_TWidget.carousel.slide{carousel}
+    / Carousel items
+    .carousel-outer
+      .carousel-inner
+        .carousel-items
+          :php
+            $colors = explode(',', $_MODULE['colors']);
+            $length = count($colors)-1;
+            $ids = explode(',', $_MODULE['item']);
+            foreach ($ids as $id) {
+              $item = $itemManager->queryById($id);
+              $itemUrl = $uriManager->detailURI($item);
+              $itemTitle = $item->title;
+              $itemPrice = $item->price;
+              $itemCate = $item->itemCategoryId;
+              $itemPic = $item->getPicUrl(620);
+              $itemSold = $item->soldCount;
+          .item{rbgc}
+            .caption
+              %h4
+                %a{phref("$itemUrl")}= p("$itemTitle")
+              %p
+                =p("$itemPrice")
+                =p("$itemSold")
+            %img{psrc("$itemPic"), width: "620", height: "320"}
+          :php
+            }
+    / Carousel nav
+    %a.carousel-control.left
+      %i.carousel-arrow-left &lsaquo;
+    %a.carousel-control.right
+      %i.carousel-arrow-right &rsaquo;
 / /.tshop-um-fw-ss01-01

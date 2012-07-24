@@ -1,23 +1,23 @@
 module ApplicationHelper
-	# def section(name)
-	# 	haml_tag(:div, :class => "section") do
-	# 		haml_tag(:h2, name)
-	# 		haml_tag(:p, :class => "section_contet") do
-	# 			yield
-	# 		end
-	# 	end
-	# end
+  # def section(name)
+  #   haml_tag(:div, :class => "section") do
+  #     haml_tag(:h2, name)
+  #     haml_tag(:p, :class => "section_contet") do
+  #       yield
+  #     end
+  #   end
+  # end
 
-	def p(param)
-		"<?= #{param} ?>"
-	end
+  def p(param)
+    "<?= #{param} ?>"
+  end
 
-	def pretty_json(item)
-		JSON.pretty_generate(item)
-	end
+  def pretty_json(item)
+    JSON.pretty_generate(item)
+  end
 
-	def stylesheets
-		File.expand_path("../stylesheets",File.dirname(__FILE__))
-	end
+  def stylesheets
+    File.expand_path("../stylesheets",File.dirname(__FILE__))
+  end
 
 end
