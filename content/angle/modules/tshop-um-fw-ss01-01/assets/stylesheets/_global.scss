@@ -1,5 +1,6 @@
 @import "cones";
 @import "carousel/*.png";
+@import "fw-ss01-01/*.png";
 .tshop-um-fw-ss01-01 {
   @include clearfix;
   // @import partials
@@ -79,6 +80,9 @@
         height: 32px;
         margin: 0;
       }
+
+      .carousel-arrow-left { @include fw-ss01-01-sprite(arrow-left);}
+      .carousel-arrow-right { @include fw-ss01-01-sprite(arrow-right);}
     }
 
     .carousel-switch {

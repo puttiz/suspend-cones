@@ -10,7 +10,7 @@ module Project
     @require_arguments
 
     def self.source_root
-      File.expand_path('../templates', File.dirname(__FILE__))
+      File.expand_path('../misc/templates', File.dirname(__FILE__))
     end
 
     def setup_project
