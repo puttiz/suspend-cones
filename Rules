@@ -3,16 +3,16 @@
 ### Loading ##########################################################
 
 require "compass"
-Compass.add_project_configuration('config.rb')
+Compass.add_project_configuration('compass.rb')
 
 sass_options = Compass.sass_engine_options
 haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
 
 ### Compilation rules ################################################
 
-compile %r{^/_.+/$} do
-  nil
-end
+# compile %r{^/_.+/$} do
+#   nil
+# end
 
 compile %r{/_[^/]+/$} do
   nil
