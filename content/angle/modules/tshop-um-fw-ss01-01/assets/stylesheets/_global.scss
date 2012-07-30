@@ -4,7 +4,7 @@
 .tshop-um-fw-ss01-01 {
   @include clearfix;
   // @import partials
-  @import "carousel";
+  @import "widgets/carousel";
   .carousel {
     margin: 30px 0;
     max-width: 950px;
