@@ -3,20 +3,18 @@
 @import "fw-ss01-01/*.png";
 .tshop-um-fw-ss01-01 {
   @include clearfix;
-  .carousel-outer, .carousel-inner { @extend .carousel-inner; }
+  .carousel-outer, .carousel-inner { @include carousel-inner; }
   .carousel-inner { height: 337px; }
 
   .carousel {
-    @extend .carousel;
+    @include carousel;
     margin: 30px 0;
     max-width: 950px;
-//    height: 320px;
     background-color:#FFF;
       .item {
         height: 320px;
         margin: 12px 0 5px 0;
         padding: 0 204px 0 126px;
-        background-color:#CCC;
 
         img {
           position:relative;
@@ -54,33 +52,16 @@
       }
 
     .carousel-control {
-      @extend .carousel-control;
-      z-index: 99;
-      top: 37px;
-      left: 5px;
-      width: 32px;
-      height: 32px;
-      border: none;
+      @include carousel-control($top: 33px, $left: 5px, $width: 32px, $height: 32px, $border: false, $radius: false );
+      z-index: 10;
       background: none;
-      @include border-radius(0px);
-
-      &.right {
-        left: auto;
-        right: 5px;
-      }
-
-      i {
-        width: 32px;
-        height: 32px;
-        margin: 0;
-      }
 
       .carousel-arrow-left { @include fw-ss01-01-sprite(arrow-left);}
       .carousel-arrow-right { @include fw-ss01-01-sprite(arrow-right);}
     }
 
     .carousel-switch {
-      @extend .carousel-switch;
+      @include carousel-switch;
       width: 620px;
       margin: 10px 0 0 126px;
     }
