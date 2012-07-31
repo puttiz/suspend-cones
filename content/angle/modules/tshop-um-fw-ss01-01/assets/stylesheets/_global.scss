@@ -65,6 +65,8 @@
     z-index: 10;
     background: none;
 
+//    &.right { right: 31px; }
+
     .arrow-left { @include fw-ss01-01-sprite(arrow-left);}
     .arrow-right { @include fw-ss01-01-sprite(arrow-right);}
   }
@@ -72,6 +74,6 @@
   .slide-nav {
     @include carousel-nav;
     width: 620px;
-    margin: 10px 0 0 126px;
+    margin: 10px 0 0 204px;
   }
 }

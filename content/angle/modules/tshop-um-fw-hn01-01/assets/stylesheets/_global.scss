@@ -1,0 +1,17 @@
+@import "cones";
+@import "widgets/navbar";
+// @import sprites
+.tshop-um-fw-hn01-01 {
+  @include pie-clearfix;
+
+  .headnav {
+    margin: 0 20px;
+    max-width: 950px;
+    @include navbar;
+    @include navbar-list;
+  }
+  
+  .dropdown {
+    display:none;
+  }
+}
