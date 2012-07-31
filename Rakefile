@@ -28,3 +28,17 @@ task :dev do
   sh "bundle exec guard --no-vendor > tmp/guard.log &"
   sh "nanoc watch"
 end
+
+desc 'Compress all stylesheet files'
+task :css do
+  require 'yui/compressor'
+  compressor = YUI::CssCompressor.new
+
+  Dir['output/**/*.css'].each do |stylesheet|
+    puts "Compressing Stylesheet: #{stylesheet}"
+    css = File.read(stylesheet)
+    File.open(stylesheet, 'w') do |file|
+      file.write(compressor.compress(css))
+    end
+  end
+end

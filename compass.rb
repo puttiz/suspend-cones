@@ -9,4 +9,7 @@ images_dir   = 'assets/images'
 sprite_load_path = 'misc/sprites'
 http_generated_images_path = '../../assets/images'
 
-add_import_path 'lib/stylesheets'
+additional_import_paths = [
+  'lib/stylesheets',
+  '../seeds/stylesheets'
+]

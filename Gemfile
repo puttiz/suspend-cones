@@ -10,6 +10,8 @@ group :development do
   # gem 'maruku'
   gem 'nokogiri'
 
+  gem 'yui-compressor'
+
   # Guard and Guard-livereload to livereload + notifications
   gem 'guard', '1.0.3'
   gem 'guard-livereload', '0.4.2'

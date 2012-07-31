@@ -1,29 +1,27 @@
 @import "cones";
-@import "carousel/*.png";
+@import "widgets/carousel";
 @import "fw-ss01-01/*.png";
 .tshop-um-fw-ss01-01 {
-  @include clearfix;
-  // @import partials
-  @import "carousel";
-  .carousel {
-    margin: 30px 0;
+  @include pie-clearfix;
+
+  .headslide {
+    @include carousel;
+    margin: 20px 0;
     max-width: 950px;
-    height: 320px;
-    background-color:#FFF;
+  }
 
-    .carousel-outer {
-//      
-    }
+  .slideshow {
+    @include carousel-inner;
+//    height: 337px;
+    height: 340px;
+  }
 
-    .carousel-inner {
-      height: 337px;
-
-      .item {
-        height: 320px;
-        margin: 12px 0 5px 0;
-        padding: 0 204px 0 126px;
-        background-color:#CCC;
-      }
+  .slideshow {
+    @include carousel-item;
+    .item {
+      height: 320px;
+      margin: 12px 0 5px 0;
+      padding: 0 126px 0 204px;
 
       img {
         position:relative;
@@ -37,8 +35,9 @@
       }
       .caption {
         z-index: 10;
-        margin-left: 750px;
+        margin-right: 750px;
         background:none;
+
         h4 {
           padding: 100px 0 0;
           text-align:left;
@@ -59,35 +58,20 @@
         }
       }
     }
+  }
 
-    .carousel-control {
-      z-index: 99;
-      top: 37px;
-      left: 5px;
-      width: 32px;
-      height: 32px;
-      border: none;
-      background: none;
-      @include border-radius(0px);
+  .slide-switch {
+    @include carousel-switch($top: 33px, $left: 5px, $width: 32px, $height: 32px, $border: false, $radius: false );
+    z-index: 10;
+    background: none;
 
-      &.right {
-        left: auto;
-        right: 5px;
-      }
+    .arrow-left { @include fw-ss01-01-sprite(arrow-left);}
+    .arrow-right { @include fw-ss01-01-sprite(arrow-right);}
+  }
 
-      i {
-        width: 32px;
-        height: 32px;
-        margin: 0;
-      }
-
-      .carousel-arrow-left { @include fw-ss01-01-sprite(arrow-left);}
-      .carousel-arrow-right { @include fw-ss01-01-sprite(arrow-right);}
-    }
-
-    .carousel-switch {
-      width: 620px;
-      margin: 10px 0 0 126px;
-    }
+  .slide-nav {
+    @include carousel-nav;
+    width: 620px;
+    margin: 10px 0 0 126px;
   }
 }

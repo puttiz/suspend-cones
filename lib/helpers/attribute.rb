@@ -15,12 +15,12 @@ module AttributeHelper
     { rel: "nofollow"}
   end
 
-  def carousel
+  def carousel(content = "carousel-items", nav = "carousel-switch")
     {
       :'data-widget-type'   => "Carousel",
       :'data-widget-config' => "{
-        'contentCls'      : 'carousel-items',
-        'navCls'          : 'carousel-switch',
+        'contentCls'      : '#{content}',
+        'navCls'          : '#{nav}',
         'activeTriggerCls': 'active',
         'prevBtnCls'      : 'left',
         'nextBtnCls'      : 'right',
