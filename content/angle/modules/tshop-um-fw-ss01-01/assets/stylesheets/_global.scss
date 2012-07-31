@@ -2,68 +2,76 @@
 @import "widgets/carousel";
 @import "fw-ss01-01/*.png";
 .tshop-um-fw-ss01-01 {
-  @include clearfix;
-  .carousel-outer, .carousel-inner { @include carousel-inner; }
-  .carousel-inner { height: 337px; }
+  @include pie-clearfix;
 
-  .carousel {
+  .headslide {
     @include carousel;
-    margin: 30px 0;
+    margin: 20px 0;
     max-width: 950px;
-    background-color:#FFF;
-      .item {
-        height: 320px;
-        margin: 12px 0 5px 0;
-        padding: 0 204px 0 126px;
+  }
 
-        img {
-          position:relative;
-          width: 620px;
-          padding: 5px 0 4px 0;
-          top: -12px;
-          left: 0px;
-          border-top: 7px solid #9A9A8D;
-          border-bottom: 1px solid #9A9A8D;
-          background-color:#FFF;
-        }
-        .caption {
-          z-index: 10;
-          margin-left: 750px;
-          background:none;
-          h4 {
-            padding: 100px 0 0;
-            text-align:left;
+  .slideshow {
+    @include carousel-inner;
+//    height: 337px;
+    height: 340px;
+  }
 
-            font-size: 1.6em;
-            line-height: 130%;
-            font-style: italic;
+  .slideshow {
+    @include carousel-item;
+    .item {
+      height: 320px;
+      margin: 12px 0 5px 0;
+      padding: 0 126px 0 204px;
 
-            a {
-              color: #fff;
-              padding: 2px 0;
+      img {
+        position:relative;
+        width: 620px;
+        padding: 5px 0 4px 0;
+        top: -12px;
+        left: 0px;
+        border-top: 7px solid #9A9A8D;
+        border-bottom: 1px solid #9A9A8D;
+        background-color:#FFF;
+      }
+      .caption {
+        z-index: 10;
+        margin-right: 750px;
+        background:none;
 
-              &:hover {
-                text-decoration: none;
-                border-bottom: 1px dotted $white;
-              }
+        h4 {
+          padding: 100px 0 0;
+          text-align:left;
+
+          font-size: 1.6em;
+          line-height: 130%;
+          font-style: italic;
+
+          a {
+            color: #fff;
+            padding: 2px 0;
+
+            &:hover {
+              text-decoration: none;
+              border-bottom: 1px dotted $white;
             }
           }
         }
       }
-
-    .carousel-control {
-      @include carousel-control($top: 33px, $left: 5px, $width: 32px, $height: 32px, $border: false, $radius: false );
-      z-index: 10;
-      background: none;
-
-      .carousel-arrow-left { @include fw-ss01-01-sprite(arrow-left);}
-      .carousel-arrow-right { @include fw-ss01-01-sprite(arrow-right);}
     }
+  }
 
-    .carousel-switch {
-      @include carousel-switch;
-      width: 620px;
-      margin: 10px 0 0 126px;
-    }
+  .slide-switch {
+    @include carousel-switch($top: 33px, $left: 5px, $width: 32px, $height: 32px, $border: false, $radius: false );
+    z-index: 10;
+    background: none;
+
+    .arrow-left { @include fw-ss01-01-sprite(arrow-left);}
+    .arrow-right { @include fw-ss01-01-sprite(arrow-right);}
+  }
+
+  .slide-nav {
+    @include carousel-nav;
+    width: 620px;
+    margin: 10px 0 0 126px;
   }
 }
