@@ -2,13 +2,25 @@
 @import "widgets/navbar";
 // @import sprites
 .tshop-um-fw-hn01-01 {
-  @include pie-clearfix;
-
   .headnav {
-    margin: 0 20px;
+    @include pie-clearfix;
+//    margin: 0 20px;
+    margin: 20px;
     max-width: 950px;
     @include navbar;
-    @include navbar-list;
+//    height: 70px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+
+    .logo {
+      @include logo;
+    }
+
+    .nav {
+      @include nav;
+    }
+
   }
   
   .dropdown {
