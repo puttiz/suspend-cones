@@ -6,9 +6,9 @@
       %ul
         %li
           %a(href="#") Home
-        %li
-          %a.popup(href="#") Collection
-          .J_TWidget.dropmenu{popup(trigger=".popup")}
+        %li.dropdown
+          %a.dropdown-toggle(href="#") Collection
+          .J_TWidget.dropdown-menu{popup(x=0, y=-10)}
             %ul
               - (0...3).each do
                 %li
