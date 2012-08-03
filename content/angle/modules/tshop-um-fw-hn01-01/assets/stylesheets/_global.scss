@@ -17,7 +17,11 @@
 
   }
   
-  .dropdown {
-    display:none;
+  .dropmenu {
+    position:absolute;
+    left:-9999px;
+    top:-9999px;
+    background-color:#fff;
+    border: 1px solid #ccc;
   }
 }

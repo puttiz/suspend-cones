@@ -1,17 +1,18 @@
 .tb-module.tshop-um.tshop-um-fw-hn01-01
-  .headnav.center
+  .headnav
     .logo
       %a(href="#") Angle img
     .nav
       %ul
         %li
-          %a{zhref} Home
-        %li.dropdown
-          %a{zhref} Collection
-          %ul.dropdown
-            - (0...3).each do
-              %li
-                %a{zhref} Collection one
+          %a(href="#") Home
+        %li
+          %a.popup(href="#") Collection
+          .J_TWidget.dropmenu{popup(trigger=".popup")}
+            %ul
+              - (0...3).each do
+                %li
+                  %a Collection one
         %li
           %a(href="#") Blog
         %li

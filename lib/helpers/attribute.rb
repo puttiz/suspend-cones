@@ -33,4 +33,21 @@ module AttributeHelper
       }"
     }
   end
+
+  def popup(trigger = ".dropmenu")
+    {
+      :'data-widget-type' => "Popup",
+      :'data-widget-config' => "{
+        'srcNode' : '.dropmenu',
+        'trigger' : '#{trigger}',
+        'triggerType' : 'mouse',
+        'closable' : false,
+        'align' : {
+          'node' : '#{trigger}',
+          'offset' : [0,-10],
+          'points' : ['bl', 'tl']
+        }
+      }"
+    }
+  end
 end
