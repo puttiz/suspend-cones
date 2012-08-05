@@ -15,13 +15,22 @@
       @include nav($logoHeight: 48px);
     }
 
-  }
-  
-  .dropdown-menu {
-    position:absolute;
-    left:-9999px;
-    top:-9999px;
-    background-color:#fff;
-    border: 1px solid #ccc;
+    .dropdown-menu {
+      @include dropdown-menu;
+      @include border-bottom-radius(6px);
+      min-width: 120px;
+    }
+
+    a {
+      line-height: 30px;
+      height: 30px;
+      font-size: 13px;
+      color: #666;
+      text-decoration:none;
+
+      &:hover {
+        color: #9A9A8D;
+      }
+    }
   }
 }

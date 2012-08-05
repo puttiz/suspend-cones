@@ -1,5 +1,5 @@
 .tb-module.tshop-um.tshop-um-fw-hn01-01
-  .headnav
+  .headnav.center
     .logo
       %a(href="#") Angle img
     .nav
@@ -8,11 +8,13 @@
           %a(href="#") Home
         %li.dropdown
           %a.dropdown-toggle(href="#") Collection
-          .J_TWidget.dropdown-menu{popup(x=0, y=-10)}
+          .J_TWidget.dropdown-menu{popup}
             %ul
-              - (0...3).each do
+              - (0...6).each do
                 %li
-                  %a Collection one
+                  %a(href="#") Collection one
+              %li
+                %a(href="#") short
         %li
           %a(href="#") Blog
         %li
