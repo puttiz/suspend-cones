@@ -1,7 +1,7 @@
 @import 'cones';
 // @import sprites
 .<%= filename %> {
-  @include clearfix;
+  @include pie-clearfix;
   // @import partials
   
 }

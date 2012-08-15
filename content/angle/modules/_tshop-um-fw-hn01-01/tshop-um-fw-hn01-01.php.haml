@@ -1,0 +1,22 @@
+.tb-module.tshop-um.tshop-um-fw-hn01-01
+  .headnav.center
+    .logo
+      %a(href="#") Angle img
+    .nav
+      %ul
+        %li
+          %a(href="#") Home
+        %li.dropdown
+          %a.dropdown-toggle(href="#") Collection
+          .J_TWidget.dropdown-menu{popup}
+            %ul
+              - (0...6).each do
+                %li
+                  %a(href="#") Collection one
+              %li
+                %a(href="#") short
+        %li
+          %a(href="#") Blog
+        %li
+          %a{phref("$uriManager->shopIntrURI();")} Contact
+/ /.tshop-um-fw-nb01-01

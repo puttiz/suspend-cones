@@ -1,0 +1,36 @@
+@import "cones";
+@import "widgets/navbar";
+// @import sprites
+.tshop-um-fw-hn01-01 {
+  .headnav {
+    @include pie-clearfix;
+    @include navbar;
+    max-width: 950px;
+
+    .logo {
+      @include logo($logoHeight: 48px);
+    }
+
+    .nav {
+      @include nav($logoHeight: 48px);
+    }
+
+    .dropdown-menu {
+      @include dropdown-menu;
+      @include border-bottom-radius(6px);
+      min-width: 120px;
+    }
+
+    a {
+      line-height: 30px;
+      height: 30px;
+      font-size: 13px;
+      color: #666;
+      text-decoration:none;
+
+      &:hover {
+        color: #9A9A8D;
+      }
+    }
+  }
+}

@@ -1,11 +1,13 @@
 ._*
+.*rc
 .*.swp
 .bundle
 .DS_Store
 .sass-cache
+*.log
 Gemfile.lock
-/assets
+
+assets
 tmp
 output
 output.diff
-crash.log
