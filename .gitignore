@@ -7,7 +7,7 @@
 *.log
 Gemfile.lock
 
-assets
+/assets
 tmp
 output
 output.diff

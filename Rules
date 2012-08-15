@@ -8,26 +8,25 @@ Compass.add_project_configuration('compass.rb')
 sass_options = Compass.sass_engine_options
 haml_options = {:escape_attrs => false, :attr_wrapper => '"'}
 
+### Ignore rules #####################################################
+
+compile %r{/_[^/]+/$} do end
+
+route %r{/_.+/$} do end
+
 ### Compilation rules ################################################
-
-# compile %r{^/_.+/$} do
-#   nil
-# end
-
-compile %r{/_[^/]+/$} do
-  nil
-end
 
 # The base stylesheets files
 compile %r{/assets/(lib|style)} do
-  if item[:extension] == 'css'
+  case item[:extension]
+  when 'css', 'less'
     nil
-  else
+  when 'scss', 'sass'
     filter :sass, sass_options.merge(:syntax => item[:extension].to_sym)
   end
 end
 
-compile %r{xml} do
+compile %w{xml} do
   filter :haml, haml_options
 end
 
@@ -43,23 +42,16 @@ end
 
 ### Routing rules ####################################################
 
-route %r{^/_.+/$} do
-  nil
-end
-
-route %r{/_[^/]+/$} do
-  nil
-end
-
-route %r{index} do
+route %w{index} do
   item.identifier[0..-7]
 end
 
 route '*' do
-  if item.binary? || item[:extension] == 'css'
-    item.identifier.chop + '.' + item[:extension]
-  else
+  case item[:extension]
+  when 'haml', 'scss', 'sass'
     item.identifier.chop
+  else
+    item.identifier.chop + '.' + item[:extension]
   end
 end
 
