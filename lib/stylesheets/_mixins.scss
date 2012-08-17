@@ -3,7 +3,6 @@
 
 @mixin reset-styles {
   @include reset-box-model;
-  @include reset-body;
   @include reset-color;
 }
 

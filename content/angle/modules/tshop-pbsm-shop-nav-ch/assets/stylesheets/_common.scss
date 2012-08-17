@@ -1,6 +1,6 @@
 
 $nav-bg-color: #FF4200;
-$all-cats-image: "../../assets/images/cloud-banner.png";
+$all-cats-image: "../../assets/images/custom_bg.png";
 
 @import "cones";
 .tshop-pbsm-shop-nav-ch {
@@ -14,7 +14,6 @@ $all-cats-image: "../../assets/images/cloud-banner.png";
 
   .popup-content, .popup-content .popup-inner, .snd-pop, .snd-pop .snd-pop-inner {
     @include reset-styles;
-    background-color:#777;
   }
 
   .popup-content .cats-tree {
@@ -28,47 +27,81 @@ $all-cats-image: "../../assets/images/cloud-banner.png";
 
 //  custom styles ////////////////////////////////////////////////////
 
-  .skin-box-bd {
-    @include reset-box-model;
-    height: 60px;
+
+  .popup-content {
+    background:transparent url($all-cats-image) repeat;
+//    border: 1px solid rgba(black, 0.2);
+    width: 210px;
+    min-height: 260px;
+    @include box-shadow(rgba(black, 0.2) 2px 2px 3px);
+    @include border-bottom-left-radius(12px);
   }
 
+  .all-cats-popup {
+
+  }
+
+  .snd-pop {
+    @extend .popup-content;
+    @include border-top-right-radius(12px);
+    @include border-bottom-left-radius(0px);
+  }
+
+
+
+  .skin-box-bd {
+    @include reset-box-model;
+    background-color: darken($nav-bg-color, 2);
+    padding: 10px;
+    padding-left: 140px;
+    height: 50px;
+  }
+
+//  nav links style //////////////////////////////////////////////////
   .all-cats {
-    background-color: $nav-bg-color;
+    background-color: #fff;
+    @include border-left-radius(12px);
+    &:hover {
+      background:transparent url($all-cats-image) repeat;
+      @include border-bottom-radius(0px);
+      @include border-top-right-radius(12px);
+      @include box-shadow(rgba(black, 0.2) 2px 0px 3px);
+    }
+
     .link {
       display:block;
-      width: 70px;
-      height: 60px;
-      line-height: 60px;
+      width: 200px;
+      height: 40px;
+      line-height: 40px;
+      margin: 5px;
       text-align:center;
       .title {
-        display:none;
+//        display:none;
         margin: 0;
         float:none;
       }
       .popup-icon {
-        display:block;
+        display:none;
         float:none;
         margin: 10px 5px;
         width: 60px;
         height: 40px;
         background:transparent url($all-cats-image) -70px -60px no-repeat;
+        background-color:#ccc;
       }
+
     }
   }
 
+  .all-cats-hover {
+    @extend .all-cats:hover;
+  }
   .all-cats-hover .link .popup-icon {  background-position:-70px -120px;}
 
   .menu-list {
-    @extend .all-cats;
-  }
-
-  .popup-content {
-//    width: 950px;
-
-    .popup-inner {
-//      width: 50%;
-    }
+//    @extend .all-cats;
+    background-color: #fff;
+    padding-left: 40px;
   }
 
 }
