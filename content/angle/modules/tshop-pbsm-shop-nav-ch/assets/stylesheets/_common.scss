@@ -1,0 +1,53 @@
+.tshop-pbsm-shop-nav-ch {
+//  cleanup default styles
+  .all-cats, .all-cats .all-cats-hover, .menu-list, .menu-list .menu-hover {
+    .link {
+      @extend %none;
+    }
+  }
+
+  .popup-content, .popup-content .popup-inner, .snd-pop, .snd-pop .snd-pop-inner {
+    @extend %none;
+  }
+
+  .popup-content .cats-tree {
+    .cat-hd, .cat-hd-hover {
+      @extend %none;
+
+      &:hover { @extend %none; }
+    }
+
+    .snd-pop-inner { @extend %none; }
+  }
+
+//  custom styles
+  .skin-box-tp {
+    display:block;
+    height: 5px;
+    background-color:#818176;
+    border-top: 1px solid #fff;
+    border-bottom: 2px solid #77776c;
+  }
+
+  .skin-box-bd {
+    border: none;
+
+    .all-cats {
+
+    }
+
+    .menu-list {
+      float:right;
+    }
+  }
+
+//  clear style %none
+  %none {
+    background:none;
+    border:none;
+    padding:0;
+  }
+
+}
+
+
