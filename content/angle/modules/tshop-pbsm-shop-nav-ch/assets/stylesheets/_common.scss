@@ -4,7 +4,6 @@ $all-cats-image: "../../assets/images/custom_bg.png";
 
 @import "cones";
 .tshop-pbsm-shop-nav-ch {
-  margin-top: 20px;
 //  cleanup default styles ///////////////////////////////////////////
   .all-cats, .all-cats .all-cats-hover, .menu-list, .menu-list .menu-hover {
     .link {
@@ -27,53 +26,73 @@ $all-cats-image: "../../assets/images/custom_bg.png";
 
 //  custom styles ////////////////////////////////////////////////////
 
-
   .popup-content {
-    background:transparent url($all-cats-image) repeat;
-//    border: 1px solid rgba(black, 0.2);
-    width: 210px;
+    @extend .all-cats:hover;
+    width: 950px;
     min-height: 260px;
-    @include box-shadow(rgba(black, 0.2) 2px 2px 3px);
-    @include border-bottom-left-radius(12px);
+    @include border-bottom-radius(3px);
+
+    .popup-inner {
+      width: 200px;
+    }
+  }
+
+  .popup-content .cats-tree {
+    .snd-pop {
+      background-color:#fff;
+      width: 750px;
+    }
+
+    .snd-pop-inner {
+      width: auto;
+      height: auto;
+      padding: 0 15px;
+    }
+
+    .snd-cat-icon {
+      display:none;
+    }
+
+    .snd-cat-name {
+      width: auto;
+      padding: 2px 10px;
+    }
+
+    ul.fst-cat-bd {
+      @include horizontal-list-container;
+      li.snd-cat {
+        @include horizontal-list-item(5px, left);
+      }
+    }
   }
 
   .all-cats-popup {
 
   }
 
-  .snd-pop {
-    @extend .popup-content;
-    @include border-top-right-radius(12px);
-    @include border-bottom-left-radius(0px);
-  }
-
-
 
   .skin-box-bd {
     @include reset-box-model;
-    background-color: darken($nav-bg-color, 2);
-    padding: 10px;
-    padding-left: 140px;
-    height: 50px;
+    height: auto;
+    border-top: 1px solid #fff;
   }
 
 //  nav links style //////////////////////////////////////////////////
   .all-cats {
-    background-color: #fff;
-    @include border-left-radius(12px);
+    width: 100%;
+    margin-bottom: 35px;
     &:hover {
-      background:transparent url($all-cats-image) repeat;
-      @include border-bottom-radius(0px);
-      @include border-top-right-radius(12px);
-      @include box-shadow(rgba(black, 0.2) 2px 0px 3px);
+      background-color: #ccc;
     }
 
     .link {
       display:block;
+      background-color: lighten(#cccccc, 8);
+      &:hover { background-color: #ccc; }
+      @include border-bottom-radius(3px);
       width: 200px;
       height: 40px;
       line-height: 40px;
-      margin: 5px;
       text-align:center;
       .title {
 //        display:none;
@@ -93,15 +112,13 @@ $all-cats-image: "../../assets/images/custom_bg.png";
     }
   }
 
-  .all-cats-hover {
+  .all-cats-hover, .all-cats-hover .all-cats-trigger .link {
     @extend .all-cats:hover;
   }
   .all-cats-hover .link .popup-icon {  background-position:-70px -120px;}
 
   .menu-list {
-//    @extend .all-cats;
-    background-color: #fff;
-    padding-left: 40px;
+
   }
 
 }
