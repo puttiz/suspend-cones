@@ -1,6 +1,13 @@
+$black: #ccc;
+
 
 $nav-bg-color: #FF4200;
-$all-cats-image: "../../assets/images/custom_bg.png";
+$all-cats-image: "";
+
+$popup-background: #78D18B;
+$popup-link-hover-background: #78D18B;
+$popup-link-background: #78D18B;
+
 
 @import "cones";
 .tshop-pbsm-shop-nav-ch {
@@ -26,11 +33,17 @@ $all-cats-image: "../../assets/images/custom_bg.png";
 
 //  custom styles ////////////////////////////////////////////////////
 
+  .popup-container {
+
+  }
+
   .popup-content {
-    @extend .all-cats:hover;
     width: 950px;
     min-height: 260px;
+    background-color: $popup-background;
     @include border-bottom-radius(3px);
+    @include box-shadow(rgba(black, 0.1) 0px 2px 1px);
+    @include box-shadow(rgba(black, 0.2) 0px -45px 62px -62px inset);
 
     .popup-inner {
       width: 200px;
@@ -74,7 +87,7 @@ $all-cats-image: "../../assets/images/custom_bg.png";
   .skin-box-bd {
     @include reset-box-model;
     height: auto;
-    border-top: 1px solid #fff;
+//    border-top: 1px solid #fff;
   }
 
 //  nav links style //////////////////////////////////////////////////
@@ -82,13 +95,15 @@ $all-cats-image: "../../assets/images/custom_bg.png";
     width: 100%;
     margin-bottom: 35px;
     &:hover {
-      background-color: #ccc;
+      background-color: $popup-link-hover-background;
     }
 
     .link {
       display:block;
-      background-color: lighten(#cccccc, 8);
-      &:hover { background-color: #ccc; }
+      background-color: $popup-link-background;
+      @include opacity(0.5);
+      &:hover { @include transparent; }
+      
       @include border-bottom-radius(3px);
       width: 200px;
       height: 40px;
@@ -96,14 +111,14 @@ $all-cats-image: "../../assets/images/custom_bg.png";
       text-align:center;
       .title {
 //        display:none;
-        margin: 0;
+        margin: 0px;
         float:none;
       }
       .popup-icon {
         display:none;
         float:none;
-        margin: 10px 5px;
-        width: 60px;
+        margin: 0px;
+        width: 40px;
         height: 40px;
         background:transparent url($all-cats-image) -70px -60px no-repeat;
         background-color:#ccc;
@@ -112,9 +127,15 @@ $all-cats-image: "../../assets/images/custom_bg.png";
     }
   }
 
-  .all-cats-hover, .all-cats-hover .all-cats-trigger .link {
-    @extend .all-cats:hover;
+  .all-cats-hover .all-cats-trigger {
+    .link {
+      background-color: transparent;
+    }
+
+    @extend .link;
+    @include box-shadow(rgba(black, 0.7) 0px -45px 62px -62px inset);
   }
+
   .all-cats-hover .link .popup-icon {  background-position:-70px -120px;}
 
   .menu-list {
