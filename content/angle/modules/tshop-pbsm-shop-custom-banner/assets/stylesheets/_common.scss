@@ -1,0 +1,12 @@
+@import "cones";
+
+.tshop-pbsm-shop-custom-banner {
+  display:none;
+  position:relative;
+  top: 0px;
+  left: 800px;
+  max-width: 70px;
+  .banner-box, .skin-box-bd {
+    @include reset-styles;
+  }
+}

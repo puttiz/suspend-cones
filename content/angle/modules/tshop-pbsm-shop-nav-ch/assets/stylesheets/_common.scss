@@ -1,0 +1,238 @@
+$black: #ccc;
+
+
+$nav-bg-color: #FF4200;
+$all-cats-image: "";
+
+$popup-height: 320px;
+$popup-background: #7CC0CB;
+$popup-background-highlight: transparent;
+$popup-link-background: #7CC0CB;
+$popup-link-background-hover: #7CC0CB;
+
+$menu-height: 36px;
+$menu-background: transparent;
+$menu-background-highlight: transparent;
+$menu-link-color: #999;
+$menu-link-color-hover: #7CC0CB;
+$menu-link-color-active: #7CC0CB;
+$menu-link-background: transparent;
+$menu-link-background-hover: #7CC0CB;
+$menu-link-background-active: #7CC0CB;
+
+@import "cones";
+.tshop-pbsm-shop-nav-ch {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+
+//  custom popup styles //////////////////////////////////////////////
+
+  .skin-box-bd {
+    @extend %reset-style;
+    height: auto;
+    border-top: 1px solid #fff;
+    a { color: $menu-link-color; }
+  }
+
+  .popup-content {
+    @extend %reset-style;
+    @extend %reset-color;
+    background: $popup-background;
+    @include border-bottom-radius(3px);
+    @include box-shadow(rgba(black, 0.1) 0px 2px 1px);
+    @include box-shadow(rgba(black, 0.2) 0px -45px 62px -62px inset);
+
+    .popup-inner {
+      width: 200px;
+      margin: 10px 0;
+      border-right: 1px solid white;
+      max-height: $popup-height;
+      overflow: auto;
+    }
+  }
+
+  .all-cats-popup {
+    width: 950px;
+
+    .cats-tree {
+      @extend %reset-style;
+      li.cat-hd-hover {
+        background:transparent;
+        .fst-cat-icon { display:none; }
+        .fst-cat-name { color: #707070; }
+      }
+
+      li.fst-cat {
+        padding-left: 15px;
+        h4.fst-cat-hd {
+          i.fst-cat-icon { display:none; }
+          a.fst-cat-name { 
+            color: white;
+            &:hover { color: #707070 }
+          }
+        }
+      }
+
+      li.snd-cat {
+        h4.snd-cat-hd {
+          cursor:pointer;
+          @include inline-block;
+          text-align:center;
+          padding: 4px 14px;
+          height: auto;
+          @include border-radius(2px);
+          background:#657383;
+          &:hover { background:#F9A7B0; }
+          i.snd-cat-icon {}
+          a.snd-cat-name {
+            float:none;
+            vertical-align: middle;
+            color: white;
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
+
+      .snd-pop {
+        width: 750px;
+      }
+
+      .snd-pop-inner {
+        width: auto;
+        height: auto;
+        background:transparent;
+        padding: 0 15px;
+      }
+
+      .snd-cat-icon {
+        display:none;
+      }
+
+      .snd-cat-name {
+        width: auto;
+        padding: 2px 10px;
+      }
+
+      ul.fst-cat-bd {
+        @include inline-block-list-container;
+        li.snd-cat {
+          @include inline-block-list-item(10px);
+        }
+      }
+    }
+  }
+
+  ul.menu-popup-cats {
+    padding: 0px;
+    color: white;
+    background-color:#777;
+    li.sub-cat {
+      height: auto;
+      &:hover {
+        color: white;
+        background-color: $popup-background;
+        @include box-shadow(rgba(white, 0.5) 0px -1px 0px inset, rgba(white, 0.5) 0px 1px 0px inset);
+        @include single-transition(all, 0.2s, ease-out, 0s);
+      }
+      a.cat-name {
+        width: auto;
+        padding: 5px 10px;
+        color: white;
+      }
+    }
+    .sub-cat-hover {
+      @extend .sub-cat:hover;
+    }
+  }
+
+//  nav links style //////////////////////////////////////////////////
+  .all-cats {
+    @extend %reset-style;
+    margin-bottom: 35px;
+    margin-right: 900px;
+    &:hover {
+      background: $popup-link-background-hover;
+    }
+
+    .link {
+      @extend %reset-style;
+      @extend %reset-color;
+      display:block;
+      color: white;
+      background: $popup-link-background;
+      @include border-bottom-radius(3px);
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align:center;
+      .title {
+        @extend %reset-style;
+        float:none;
+      }
+      .popup-icon { display:none; }
+
+    }
+  }
+
+  .all-cats-hover .all-cats-trigger {
+    .link {
+      @extend %reset-style;
+      @extend %reset-color;
+      color: white;
+      margin: 0 auto;
+      width: 200px;
+      &:hover { color: white; }
+    }
+
+    @extend .link;
+    width: 950px;
+    @include box-shadow(rgba(black, 0.7) 0px -45px 62px -62px inset);
+
+    &:hover { cursor:pointer; }
+  }
+
+  .all-cats-hover .link .popup-icon { display: none; }
+
+  ul.menu-list {
+    float: right;
+    @include horizontal-list-container;
+    li.menu {
+      @include horizontal-list-item(25px, left);
+    }
+    a.link {
+      @extend %reset-style;
+      @extend %reset-color;
+      color: $menu-link-color;
+      background: $menu-background;
+      display:block;
+      padding: 5px 0 10px 0;
+      height: $menu-height;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 3px solid $menu-link-background;
+
+      .title {}
+      .popup-icon { display: none; }
+    }
+
+    .menu-hover .link {
+      @extend a.link;
+      color: $menu-link-color-hover;
+      border-bottom: 3px solid $menu-link-background-hover;
+    }
+
+    .menu-selected {
+      background: $menu-background-highlight;
+      .link {
+        @extend a.link;
+        color: $menu-link-color-active;
+        border-bottom: 3px solid $menu-link-background-active;
+      }
+    }
+  }
+
+}
+
+

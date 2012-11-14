@@ -1,0 +1,11 @@
+%reset-style {
+  @include reset-box-model;
+  @include reset-font;
+  text-decoration:none;
+  a:hover { text-decoration:none; };
+}
+
+%reset-color {
+  color: black;
+  background: transparent;
+}

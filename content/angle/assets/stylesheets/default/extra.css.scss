@@ -1,11 +1,4 @@
-#content {
-  background-image:url(/angle/assets/images/custom_bg.png) !important;
-  background-repeat:repeat !important;
-  background-position:0 null !important;
-}
+$content-bg-image: "";
+$hd-bg-image: "";
 
-#hd {
-  background-image:url(/angle/assets/images/custom_bg.png) !important;
-  background-repeat:repeat !important;
-  background-position:0 null !important;
-}
+@import "../common";
