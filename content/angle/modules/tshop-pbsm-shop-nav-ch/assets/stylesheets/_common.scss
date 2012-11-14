@@ -4,53 +4,50 @@ $black: #ccc;
 $nav-bg-color: #FF4200;
 $all-cats-image: "";
 
+$popup-height: 320px;
 $popup-background: #7CC0CB;
-$popup-link-hover-background: #7CC0CB;
+$popup-background-highlight: transparent;
 $popup-link-background: #7CC0CB;
+$popup-link-background-hover: #7CC0CB;
 
+$menu-height: 36px;
+$menu-background: transparent;
+$menu-background-highlight: transparent;
+$menu-link-color: #999;
+$menu-link-color-hover: #7CC0CB;
+$menu-link-color-active: #7CC0CB;
+$menu-link-background: transparent;
+$menu-link-background-hover: #7CC0CB;
+$menu-link-background-active: #7CC0CB;
 
 @import "cones";
 .tshop-pbsm-shop-nav-ch {
-//  cleanup default styles ///////////////////////////////////////////
-  .all-cats, .all-cats .all-cats-hover, .menu-list, .menu-list .menu-hover {
-    .link {
-      @include reset-styles;
-    }
-  }
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
 
-  .popup-content, .popup-content .popup-inner, .snd-pop, .snd-pop .snd-pop-inner {
-    @include reset-styles;
-  }
-
-  .popup-content .cats-tree {
-    .cat-hd, .cat-hd-hover {
-      @include reset-styles;
-      &:hover { @include reset-color; }
-    }
-
-    .snd-pop-inner { @include reset-styles; }
-  }
-
-//  custom styles ////////////////////////////////////////////////////
+//  custom popup styles //////////////////////////////////////////////
 
   .skin-box-bd {
-    @include reset-box-model;
+    @extend %reset-style;
     height: auto;
     border-top: 1px solid #fff;
+    a { color: $menu-link-color; }
   }
 
   .popup-content {
-    max-height: 320px;
-    background-color: $popup-background;
+    @extend %reset-style;
+    @extend %reset-color;
+    background: $popup-background;
     @include border-bottom-radius(3px);
     @include box-shadow(rgba(black, 0.1) 0px 2px 1px);
     @include box-shadow(rgba(black, 0.2) 0px -45px 62px -62px inset);
 
     .popup-inner {
       width: 200px;
-      padding: 10px 0;
       margin: 10px 0;
       border-right: 1px solid white;
+      max-height: $popup-height;
+      overflow: auto;
     }
   }
 
@@ -58,6 +55,7 @@ $popup-link-background: #7CC0CB;
     width: 950px;
 
     .cats-tree {
+      @extend %reset-style;
       li.cat-hd-hover {
         background:transparent;
         .fst-cat-icon { display:none; }
@@ -83,8 +81,8 @@ $popup-link-background: #7CC0CB;
           padding: 4px 14px;
           height: auto;
           @include border-radius(2px);
-          background-color:#657383;
-          &:hover { background-color:#F9A7B0; }
+          background:#657383;
+          &:hover { background:#F9A7B0; }
           i.snd-cat-icon {}
           a.snd-cat-name {
             float:none;
@@ -104,6 +102,7 @@ $popup-link-background: #7CC0CB;
       .snd-pop-inner {
         width: auto;
         height: auto;
+        background:transparent;
         padding: 0 15px;
       }
 
@@ -117,9 +116,9 @@ $popup-link-background: #7CC0CB;
       }
 
       ul.fst-cat-bd {
-        @include horizontal-list-container;
+        @include inline-block-list-container;
         li.snd-cat {
-          @include horizontal-list-item(5px, left);
+          @include inline-block-list-item(10px);
         }
       }
     }
@@ -150,44 +149,38 @@ $popup-link-background: #7CC0CB;
 
 //  nav links style //////////////////////////////////////////////////
   .all-cats {
+    @extend %reset-style;
     margin-bottom: 35px;
     margin-right: 900px;
     &:hover {
-      background-color: $popup-link-hover-background;
+      background: $popup-link-background-hover;
     }
 
     .link {
+      @extend %reset-style;
+      @extend %reset-color;
       display:block;
       color: white;
-      background-color: $popup-link-background;
-      &:hover { @include transparent; color: white; }
-      
+      background: $popup-link-background;
       @include border-bottom-radius(3px);
       width: 40px;
       height: 40px;
       line-height: 40px;
       text-align:center;
       .title {
-        margin: 0px;
+        @extend %reset-style;
         float:none;
       }
-      .popup-icon {
-        display:none;
-        float:none;
-        margin: 0px;
-        width: 40px;
-        height: 40px;
-        background:transparent url($all-cats-image) -70px -60px no-repeat;
-        background-color:#ccc;
-      }
+      .popup-icon { display:none; }
 
     }
   }
 
   .all-cats-hover .all-cats-trigger {
     .link {
+      @extend %reset-style;
+      @extend %reset-color;
       color: white;
-      background-color: transparent;
       margin: 0 auto;
       width: 200px;
       &:hover { color: white; }
@@ -200,10 +193,44 @@ $popup-link-background: #7CC0CB;
     &:hover { cursor:pointer; }
   }
 
-  .all-cats-hover .link .popup-icon {  background-position:-70px -120px;}
+  .all-cats-hover .link .popup-icon { display: none; }
 
-  .menu-list {
+  ul.menu-list {
+    float: right;
+    @include horizontal-list-container;
+    li.menu {
+      @include horizontal-list-item(25px, left);
+    }
+    a.link {
+      @extend %reset-style;
+      @extend %reset-color;
+      color: $menu-link-color;
+      background: $menu-background;
+      display:block;
+      padding: 5px 0 10px 0;
+      height: $menu-height;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 3px solid $menu-link-background;
 
+      .title {}
+      .popup-icon { display: none; }
+    }
+
+    .menu-hover .link {
+      @extend a.link;
+      color: $menu-link-color-hover;
+      border-bottom: 3px solid $menu-link-background-hover;
+    }
+
+    .menu-selected {
+      background: $menu-background-highlight;
+      .link {
+        @extend a.link;
+        color: $menu-link-color-active;
+        border-bottom: 3px solid $menu-link-background-active;
+      }
+    }
   }
 
 }
